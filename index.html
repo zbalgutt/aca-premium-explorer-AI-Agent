@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ACA Premium Explorer</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet" />
+        <style>
+            *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+            :root {
+                --paper: #e9f7f4;
+                --surface: #ffffff;
+                --ink: #0f2b3d;
+                --muted: #4f6b7a;
+                --rule: #c7e0dc;
+                --teal: #0e9490;
+                --teal-deep: #0a5f68;
+                --coral: #ff6b57;
+                --sun: #ffc83d;
+                --blue: #2f6fdb;
+                --violet: #7c6bd6;
+                --mark: #ffd96a;
+                --bar-a: #12a8a0;
+                --bar-b: #2f6fdb;
+                --warn: #c8321c;
+                --focus: #2f6fdb;
+                --card-shadow: 0 1px 2px rgba(15, 43, 61, 0.06), 0 8px 24px rgba(14, 148, 144, 0.10);
+                --rail-a: #0a5f68;
+                --rail-b: #123f7a;
+                --glyph: %230e9490;
+                --glyph-op: 0.16;
+                --sans: "Familjen Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+                --mono: "Spline Sans Mono", ui-monospace, "SF Mono", Menlo, monospace;
+            }
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --paper: #0c1a22;
+                    --surface: #14262f;
+                    --ink: #e8f2f1;
+                    --muted: #9bb4bc;
+                    --rule: #264450;
+                    --mark: #b8901c;
+                    --bar-a: #2bc4b9;
+                    --bar-b: #6fa0f5;
+                    --warn: #ff8a6b;
+                    --focus: #8fb0ff;
+                    --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.25);
+                    --rail-a: #08333b;
+                    --rail-b: #0e2549;
+                    --glyph: %2358d6cc;
+                    --glyph-op: 0.09;
+                }
+            }
+            html { background: var(--paper); }
+            body {
+                font-family: var(--sans);
+                color: var(--ink);
+                line-height: 1.5;
+                font-size: 1rem;
+                min-height: 100vh;
+                background-color: var(--paper);
+                background-image:
+                    radial-gradient(60rem 30rem at 85% -10%, rgba(255, 200, 61, 0.22), transparent 60%),
+                    radial-gradient(50rem 30rem at 100% 100%, rgba(47, 111, 219, 0.14), transparent 60%),
+                    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180' fill='none' stroke='%230e9490' stroke-opacity='0.16' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 12v20M12 22h20'/%3E%3Cpath d='M88 40c-8-9-22-3-22 8 0 12 22 24 22 24s22-12 22-24c0-11-14-17-22-8z'/%3E%3Cpath d='M146 14l18 7v14c0 11-9 18-18 22-9-4-18-11-18-22V21z'/%3E%3Cpath d='M146 29v12M140 35h12'/%3E%3Cpath d='M14 112h26l7-16 12 32 9-16h28'/%3E%3Crect x='120' y='96' width='44' height='18' rx='9' transform='rotate(-35 142 105)'/%3E%3Cpath d='M142 105l-12-8'/%3E%3Cpath d='M108 150v18M99 159h18'/%3E%3Cpath d='M40 156a10 10 0 1 0 20 0a10 10 0 1 0-20 0'/%3E%3C/svg%3E");
+                background-attachment: fixed;
+            }
+            :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+            button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+
+            .app { display: grid; grid-template-columns: 320px minmax(0, 1fr); min-height: 100vh; }
+
+            /* Side rail */
+            .rail {
+                padding: 2rem 1.5rem 2rem;
+                position: sticky; top: 0; align-self: start; height: 100vh; overflow-y: auto;
+                color: #eaf6f5;
+                background:
+                    radial-gradient(18rem 14rem at 0% 0%, rgba(255, 200, 61, 0.25), transparent 70%),
+                    linear-gradient(165deg, var(--rail-a), var(--rail-b));
+            }
+            .brand { display: flex; gap: 0.75rem; align-items: center; }
+            .brand svg { flex: none; width: 3rem; height: 3rem; filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3)); }
+            .rail h1 { font-size: 1.7rem; line-height: 1.02; font-weight: 700; letter-spacing: -0.03em; color: #fff; }
+            .rail .what { margin-top: 1rem; color: #cfe7e6; font-size: 0.93rem; }
+            .rail h2 { font-size: 0.95rem; font-weight: 600; margin: 1.6rem 0 0.6rem; color: var(--sun); }
+            .assume { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.85rem; }
+            .assume div { background: rgba(255, 255, 255, 0.10); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 0.7rem; padding: 0.45rem 0.65rem; }
+            .assume dt { color: #a9d1d0; font-size: 0.75rem; }
+            .assume dd { font-weight: 600; color: #fff; }
+            .rail p.small { font-size: 0.85rem; color: #cfe7e6; }
+            .try { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+            .try button {
+                text-align: left; font-size: 0.88rem; line-height: 1.3; padding: 0.5rem 0.75rem; width: 100%;
+                border-radius: 0.8rem; color: #fff; background: rgba(255, 255, 255, 0.09);
+                border: 1px solid rgba(255, 255, 255, 0.14); border-left: 5px solid var(--c, var(--sun));
+                transition: background 0.15s, transform 0.15s;
+            }
+            .try li:nth-child(1) button { --c: #ffc83d; }
+            .try li:nth-child(2) button { --c: #ff6b57; }
+            .try li:nth-child(3) button { --c: #5fe0d2; }
+            .try li:nth-child(4) button { --c: #8fb0ff; }
+            .try li:nth-child(5) button { --c: #b9a8ff; }
+            .try li:nth-child(6) button { --c: #ff9db0; }
+            .try button:hover { background: rgba(255, 255, 255, 0.18); transform: translateX(2px); }
+            .try .cant { border-style: dashed; border-left-style: solid; }
+
+            /* Conversation */
+            .main { display: flex; flex-direction: column; min-width: 0; height: 100vh; }
+            #messages { flex: 1; overflow-y: auto; padding: 2rem clamp(1.25rem, 5vw, 3.5rem) 1rem; scroll-behavior: smooth; }
+            .thread { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
+
+            .empty { max-width: 780px; margin: 3vh auto 0; }
+            .hero { position: relative; overflow: hidden; border-radius: 1.6rem; padding: 2rem clamp(1.25rem, 4vw, 2.25rem) 1.75rem; color: #fff; background: linear-gradient(120deg, #0e9490 0%, #2f6fdb 70%, #7c6bd6 100%); box-shadow: 0 18px 40px rgba(18, 63, 122, 0.28); }
+            .hero::after { content: ""; position: absolute; right: -3rem; top: -3rem; width: 14rem; height: 14rem; border-radius: 50%; background: radial-gradient(circle, rgba(255, 200, 61, 0.9), rgba(255, 200, 61, 0) 70%); }
+            .hero p.big { position: relative; z-index: 1; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.08; font-weight: 700; letter-spacing: -0.025em; max-width: 16ch; }
+            .hero p.sub { position: relative; z-index: 1; margin-top: 0.8rem; color: #e3f4f2; max-width: 48ch; }
+            .hero svg.ecg { position: relative; z-index: 1; display: block; width: 100%; height: 3.2rem; margin-top: 1.2rem; }
+            .hero svg.ecg path { fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 700; stroke-dashoffset: 700; animation: beat 2.4s ease-out 0.2s forwards; }
+            @keyframes beat { to { stroke-dashoffset: 0; } }
+            .topics { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; margin-top: 1rem; }
+            .topic { background: var(--surface); border-radius: 1.1rem; padding: 0.85rem 1rem; box-shadow: var(--card-shadow); border-top: 5px solid var(--c); }
+            .topic:nth-child(1) { --c: var(--teal); }
+            .topic:nth-child(2) { --c: var(--coral); }
+            .topic:nth-child(3) { --c: var(--sun); }
+            .topic:nth-child(4) { --c: var(--violet); }
+            .topic b { display: block; font-size: 0.95rem; }
+            .topic span { font-size: 0.82rem; color: var(--muted); }
+
+            .you { align-self: flex-end; max-width: 80%; background: linear-gradient(135deg, var(--teal), var(--blue)); color: #fff; padding: 0.65rem 1.05rem; border-radius: 1.2rem 1.2rem 0.3rem 1.2rem; box-shadow: 0 6px 16px rgba(47, 111, 219, 0.25); }
+            .answer { max-width: 100%; background: var(--surface); border-radius: 1.2rem 1.2rem 1.2rem 0.3rem; padding: 1.1rem 1.25rem 1rem; box-shadow: var(--card-shadow); border-top: 5px solid var(--teal); }
+            .answer .text { max-width: 68ch; }
+            .answer .text p + p, .answer .text ul { margin-top: 0.6rem; }
+            .answer .text ul { padding-left: 1.2rem; }
+            .answer.pending { border-top-color: var(--sun); }
+            .answer.pending .text { color: var(--muted); }
+            .dots span { display: inline-block; width: 0.45rem; height: 0.45rem; margin-right: 0.25rem; border-radius: 50%; background: var(--coral); animation: blink 1.2s infinite both; }
+            .dots span:nth-child(2) { animation-delay: 0.2s; background: var(--sun); }
+            .dots span:nth-child(3) { animation-delay: 0.4s; background: var(--teal); }
+            @keyframes blink { 0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); } 40% { opacity: 1; transform: scale(1.1); } }
+
+            /* Figures and tables */
+            .figures { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 0 0 1rem; }
+            .figure { flex: 1 1 150px; border-radius: 1rem; padding: 0.7rem 1rem 0.8rem; background: linear-gradient(135deg, rgba(14, 148, 144, 0.14), rgba(47, 111, 219, 0.12)); border: 1px solid var(--rule); }
+            .figure:nth-child(2n) { background: linear-gradient(135deg, rgba(255, 107, 87, 0.14), rgba(255, 200, 61, 0.18)); }
+            .figure:nth-child(3n) { background: linear-gradient(135deg, rgba(124, 107, 214, 0.16), rgba(47, 111, 219, 0.10)); }
+            .figure .num { font-family: var(--mono); font-size: clamp(1.9rem, 5vw, 2.7rem); font-weight: 500; letter-spacing: -0.04em; line-height: 1.1; }
+            .figure .num mark { background: linear-gradient(transparent 58%, var(--mark) 58%); color: inherit; padding: 0 0.12em; margin: 0 -0.12em; }
+            .figure .label { font-size: 0.85rem; color: var(--muted); margin-top: 0.1rem; }
+            .sheet { margin: 0 0 1rem; overflow: auto; border: 1px solid var(--rule); border-radius: 0.9rem; max-height: 420px; }
+            .sheet table { border-collapse: collapse; width: 100%; font-size: 0.875rem; }
+            .sheet th { position: sticky; top: 0; background: var(--teal-deep); color: #fff; text-align: left; font-weight: 600; font-size: 0.8rem; padding: 0.6rem 0.9rem; white-space: nowrap; }
+            .sheet td { padding: 0.45rem 0.9rem; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+            .sheet tbody tr:nth-child(even) td { background: rgba(14, 148, 144, 0.06); }
+            .sheet tr:last-child td { border-bottom: none; }
+            .sheet th.num, .sheet td.num { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+            .sheet th.num { font-family: var(--sans); }
+            .sheet td.bar { width: 28%; min-width: 90px; padding-left: 0; }
+            .sheet td.bar span { display: block; height: 0.6rem; background: linear-gradient(90deg, var(--bar-a), var(--bar-b)); border-radius: 0 999px 999px 0; transform-origin: left; animation: grow 0.5s ease-out both; }
+            @keyframes grow { from { transform: scaleX(0); } }
+            .sheet .more { padding: 0.5rem 0.9rem; font-size: 0.8rem; color: var(--muted); }
+
+            /* How it got there */
+            details.work { margin: 0.25rem 0 0.4rem; font-size: 0.85rem; }
+            details.work > summary { cursor: pointer; color: var(--teal-deep); font-weight: 600; list-style: none; display: inline-flex; gap: 0.4rem; align-items: center; }
+            @media (prefers-color-scheme: dark) { details.work > summary { color: #5fe0d2; } }
+            details.work > summary::before { content: "+"; display: inline-grid; place-items: center; width: 1.1rem; height: 1.1rem; border-radius: 50%; background: var(--sun); color: #0f2b3d; font-family: var(--mono); line-height: 1; }
+            details.work[open] > summary::before { content: "–"; }
+            details.work .blocked { color: var(--warn); font-weight: 600; }
+            .step { margin-top: 0.7rem; padding-left: 0.9rem; border-left: 3px solid var(--teal); }
+            .step.rejected { border-left-color: var(--warn); }
+            .step .head { display: flex; gap: 0.75rem; align-items: baseline; font-weight: 600; }
+            .step .head .tag { font-weight: 400; color: var(--muted); }
+            .step.rejected .head .tag { color: var(--warn); }
+            .step .copy { margin-left: auto; font-size: 0.8rem; color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+            .step pre { font-family: var(--mono); font-size: 0.75rem; line-height: 1.55; background: var(--paper); border: 1px solid var(--rule); border-radius: 0.6rem; padding: 0.6rem 0.8rem; margin-top: 0.35rem; white-space: pre-wrap; word-break: break-word; overflow-x: auto; }
+            .step pre.out { color: var(--muted); max-height: 9rem; overflow-y: auto; }
+
+            /* Composer */
+            .composer { padding: 0.9rem clamp(1.25rem, 5vw, 3.5rem) 1.3rem; }
+            .composer form { max-width: 780px; margin: 0 auto; display: flex; gap: 0.6rem; align-items: center; background: var(--surface); border-radius: 999px; padding: 0.4rem 0.4rem 0.4rem 1.2rem; box-shadow: var(--card-shadow); border: 2px solid var(--rule); }
+            .composer form:focus-within { border-color: var(--teal); }
+            .composer input { flex: 1; font: inherit; color: inherit; background: transparent; border: none; padding: 0.55rem 0; min-width: 0; }
+            .composer input:focus-visible { outline: none; }
+            .composer input::placeholder { color: var(--muted); }
+            .composer .send { background: linear-gradient(135deg, var(--coral), #ff9a4d); color: #fff; border-radius: 999px; padding: 0.65rem 1.5rem; font-weight: 700; box-shadow: 0 4px 12px rgba(255, 107, 87, 0.4); }
+            .composer .send:disabled { opacity: 0.4; cursor: default; box-shadow: none; }
+            .composer .reset { color: var(--muted); font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; padding: 0 0.75rem; }
+
+            @media (max-width: 860px) {
+                .app { display: block; }
+                .rail { position: static; height: auto; padding: 1.5rem 1.25rem; }
+                .main { height: auto; min-height: 70vh; }
+                #messages { overflow: visible; padding-top: 1.5rem; }
+                .empty { margin-top: 1rem; }
+                .composer { position: sticky; bottom: 0; background: linear-gradient(transparent, var(--paper) 40%); }
+                .composer .reset { display: none; }
+            }
+            @media (prefers-reduced-motion: reduce) {
+                * { animation: none !important; scroll-behavior: auto !important; transition: none !important; }
+                .hero svg.ecg path { stroke-dashoffset: 0; }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="app">
+            <aside class="rail">
+                <div class="brand"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd96a"/><stop offset="1" stop-color="#ff6b57"/></linearGradient></defs><path d="M24 3l17 6v13c0 11-7.5 19-17 23C14.500 41 7 33 7 22V9z" fill="url(#lg)"/><path d="M24 14v14M17 21h14" stroke="#0a5f68" stroke-width="4" stroke-linecap="round"/><path d="M12 33h6l3-5 4 9 3-4h8" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0"/></svg><h1>ACA Premium Explorer</h1></div>
+                <p class="what">
+                    Ask in plain English what marketplace health plans cost, who sells them, which counties they cover,
+                    and what happened to last year's plans. Built on CMS public use files for
+                    <span id="years">2025 to 2027</span>, for shoppers, analysts and journalists.
+                </p>
+
+                <h2>Unless you say otherwise</h2>
+                <dl class="assume">
+                    <div><dt>Year</dt><dd id="latest">newest</dd></div>
+                    <div><dt>Age</dt><dd>40</dd></div>
+                    <div><dt>Plans</dt><dd>Individual, medical</dd></div>
+                    <div><dt>Price</dt><dd>Monthly, pre-subsidy</dd></div>
+                </dl>
+
+                <h2>Try asking</h2>
+                <ul class="try" id="examples"></ul>
+
+                <h2>What it can't answer</h2>
+                <p class="small">
+                    Premiums for a county, because the files give rating areas and no county map. States that run their own
+                    enrollment platform (<span id="states">only some states</span> are in the data). Anything after the
+                    newest year.
+                </p>
+                <p class="small" style="margin-top: 0.75rem">
+                    Averages are simple averages of listed prices, not weighted by enrollment. Open "How it got there" under any answer to see the SQL.
+                </p>
+            </aside>
+
+            <main class="main">
+                <div id="messages">
+                    <div class="empty" id="empty">
+                        <div class="hero">
+                            <p class="big">What does a plan really cost?</p>
+                            <p class="sub">Pick a question on the left or type your own below. Every answer shows the table it came from.</p>
+                            <svg class="ecg" viewBox="0 0 600 50" preserveAspectRatio="none" aria-hidden="true"><path d="M0 28h150l14-20 20 40 16-34 12 14h60l14-18 20 36 14-18h280"/></svg>
+                        </div>
+                        <div class="topics">
+                            <div class="topic"><b>Premiums</b><span>By age, tobacco and rating area</span></div>
+                            <div class="topic"><b>Plans and benefits</b><span>Metal levels, copays, deductibles</span></div>
+                            <div class="topic"><b>Where it is sold</b><span>Issuers and counties served</span></div>
+                            <div class="topic"><b>What changed</b><span>Plans kept, moved or dropped</span></div>
+                        </div>
+                    </div>
+                    <div class="thread" id="thread"></div>
+                </div>
+                <div class="composer">
+                    <form id="form">
+                        <input id="user-input" type="text" placeholder="Ask about plans, premiums, issuers or counties" autocomplete="off" aria-label="Your question" />
+                        <button class="send" id="send-btn" type="submit">Ask</button>
+                        <button class="reset" id="clear-btn" type="button">New chat</button>
+                    </form>
+                </div>
+            </main>
+        </div>
+
+        <script>
+            const messages = document.getElementById("messages");
+            const thread = document.getElementById("thread");
+            const empty = document.getElementById("empty");
+            const userInput = document.getElementById("user-input");
+            const sendBtn = document.getElementById("send-btn");
+            let sessionId = null;
+
+            const EXAMPLES = [
+                ["What was the average premium for a 40 year old on a Silver plan in Texas in 2026?", false],
+                ["Which five issuers have the cheapest Bronze plans in Florida in 2027?", false],
+                ["How did Silver premiums change from 2026 to 2027 for the same plans, by state?", false],
+                ["How many of last year's plans were discontinued with no replacement?", false],
+                ["Which issuers sell plans in Harris County, Texas?", false],
+                ["What is the premium in Harris County, Texas?", true],
+            ];
+            const examples = document.getElementById("examples");
+            for (const [q, cant] of EXAMPLES) {
+                const li = document.createElement("li");
+                const b = document.createElement("button");
+                b.type = "button";
+                b.textContent = q;
+                if (cant) b.className = "cant";
+                b.title = cant ? "A question it should decline, and say why" : "";
+                b.onclick = () => { userInput.value = q; ask(); };
+                li.appendChild(b);
+                examples.appendChild(li);
+            }
+
+            fetch("/meta").then((r) => r.json()).then((m) => {
+                if (m.years && m.years.length) {
+                    document.getElementById("years").textContent = m.years[0] + " to " + m.years[m.years.length - 1];
+                    document.getElementById("latest").textContent = m.years[m.years.length - 1];
+                }
+                if (m.states && m.states.length) document.getElementById("states").textContent = m.states.length + " states: " + m.states.join(", ");
+            }).catch(() => {});
+
+            function el(tag, className, text) {
+                const e = document.createElement(tag);
+                if (className) e.className = className;
+                if (text !== undefined) e.textContent = text;
+                return e;
+            }
+
+            // Small, safe formatter for the answer: **bold**, "- " bullets, paragraphs. Never uses innerHTML.
+            function inline(parent, line) {
+                line.split(/(\*\*[^*]+\*\*)/).forEach((part) => {
+                    if (part.startsWith("**") && part.endsWith("**")) parent.appendChild(el("strong", "", part.slice(2, -2)));
+                    else if (part) parent.appendChild(document.createTextNode(part));
+                });
+            }
+            function renderText(container, text) {
+                container.replaceChildren();
+                let list = null;
+                for (const raw of text.split("\n")) {
+                    const line = raw.trim();
+                    if (!line) { list = null; continue; }
+                    if (/^[-*] /.test(line)) {
+                        if (!list) { list = el("ul"); container.appendChild(list); }
+                        const li = el("li"); inline(li, line.slice(2)); list.appendChild(li);
+                    } else {
+                        list = null;
+                        const p = el("p"); inline(p, line); container.appendChild(p);
+                    }
+                }
+            }
+
+            const MONEY = /premium|rate|deductible|moop|price|cost|benchmark|cheapest|lowest|highest|avg|average|median|min|max/i;
+            const COUNT = /count|plans|issuers|counties|n$|total|number/i;
+            function fmt(col, v) {
+                if (v === null || v === undefined) return "–";
+                if (typeof v !== "number") return String(v);
+                if (/pct|percent/i.test(col)) return v.toLocaleString(undefined, { maximumFractionDigits: 1 }) + "%";
+                if (/^(plan_year|year)$/i.test(col)) return String(v);
+                if (MONEY.test(col) && !COUNT.test(col)) return "$" + v.toLocaleString(undefined, { minimumFractionDigits: v % 1 ? 2 : 0, maximumFractionDigits: 2 });
+                return v.toLocaleString(undefined, { maximumFractionDigits: 2 });
+            }
+            const pretty = (c) => c.replace(/_/g, " ");
+
+            function parse(call) { try { return JSON.parse(call.result); } catch (e) { return null; } }
+            function rejected(call) {
+                const r = parse(call);
+                return call.result.startsWith("Rejected") || (r && r.error);
+            }
+
+            // One row of numbers becomes large figures. Anything longer becomes a ruled table.
+            function figures(r) {
+                const wrap = el("div", "figures");
+                r.columns.forEach((c, i) => {
+                    if (typeof r.rows[0][i] !== "number") return;
+                    const f = el("div", "figure");
+                    const n = el("div", "num");
+                    n.appendChild(el("mark", "", fmt(c, r.rows[0][i])));
+                    f.appendChild(n);
+                    f.appendChild(el("div", "label", pretty(c)));
+                    wrap.appendChild(f);
+                });
+                return wrap;
+            }
+            function sheet(r) {
+                const wrap = el("div", "sheet");
+                const table = el("table");
+                const bars = r.columns.length === 2 && r.rows.length > 1 && r.rows.every((row) => typeof row[1] === "number");
+                const max = bars ? Math.max(...r.rows.map((row) => Math.abs(row[1]))) || 1 : 1;
+                const head = el("tr");
+                r.columns.forEach((c, i) => head.appendChild(el("th", r.rows.some((row) => typeof row[i] === "number") ? "num" : "", pretty(c))));
+                if (bars) head.appendChild(el("th"));
+                table.appendChild(head);
+                for (const row of r.rows) {
+                    const tr = el("tr");
+                    row.forEach((v, i) => tr.appendChild(el("td", typeof v === "number" ? "num" : "", fmt(r.columns[i], v))));
+                    if (bars) {
+                        const td = el("td", "bar");
+                        const s = el("span");
+                        s.style.width = (Math.abs(row[1]) / max) * 100 + "%";
+                        td.appendChild(s);
+                        tr.appendChild(td);
+                    }
+                    table.appendChild(tr);
+                }
+                wrap.appendChild(table);
+                if (r.truncated) wrap.appendChild(el("div", "more", "Showing the first " + r.rows.length + " rows."));
+                return wrap;
+            }
+            function evidence(r) {
+                const numeric = r.rows[0].some((v) => typeof v === "number");
+                return r.rows.length === 1 && numeric ? figures(r) : sheet(r);
+            }
+
+            function work(calls) {
+                const blocked = calls.filter(rejected).length;
+                const d = el("details", "work");
+                const s = el("summary", "", "How it got there: " + calls.length + " step" + (calls.length === 1 ? "" : "s"));
+                if (blocked) {
+                    s.appendChild(document.createTextNode(", "));
+                    s.appendChild(el("span", "blocked", blocked + " blocked or failed"));
+                }
+                d.appendChild(s);
+                for (const call of calls) {
+                    const bad = rejected(call);
+                    const step = el("div", "step" + (bad ? " rejected" : ""));
+                    const head = el("div", "head");
+                    head.appendChild(el("span", "", call.name));
+                    head.appendChild(el("span", "tag", bad ? "blocked" : call.agent || ""));
+                    const text = call.name === "run_sql" ? call.args.query : JSON.stringify(call.args);
+                    if (call.name === "run_sql") {
+                        const copy = el("button", "copy", "Copy SQL");
+                        copy.type = "button";
+                        copy.onclick = () => navigator.clipboard.writeText(text).then(() => { copy.textContent = "Copied"; setTimeout(() => (copy.textContent = "Copy SQL"), 1500); });
+                        head.appendChild(copy);
+                    }
+                    step.appendChild(head);
+                    if (text && text !== "{}") step.appendChild(el("pre", "", text));
+                    step.appendChild(el("pre", "out", call.result.length > 1500 ? call.result.slice(0, 1500) + "…" : call.result));
+                    d.appendChild(step);
+                }
+                return d;
+            }
+
+            function scrollDown() { messages.scrollTop = messages.scrollHeight; window.scrollTo(0, document.body.scrollHeight); }
+
+            async function ask() {
+                const text = userInput.value.trim();
+                if (!text) return;
+                userInput.value = "";
+                sendBtn.disabled = true;
+                empty.style.display = "none";
+                thread.appendChild(el("div", "you", text));
+
+                const answer = el("div", "answer pending");
+                const body = el("div", "text");
+                const dots = el("span", "dots");
+                dots.append(el("span"), el("span"), el("span"));
+                body.append(dots, document.createTextNode(" Looking at the data"));
+                answer.appendChild(body);
+                thread.appendChild(answer);
+                scrollDown();
+
+                try {
+                    const res = await fetch("/chat", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ message: text, session_id: sessionId }),
+                    });
+                    const data = await res.json();
+                    sessionId = data.session_id;
+                    const calls = data.tool_calls || [];
+
+                    answer.replaceChildren();
+                    // The last query that returned rows is the evidence: show it first.
+                    const good = calls.filter((c) => c.name === "run_sql" && !rejected(c)).map(parse).filter((r) => r && r.rows && r.rows.length);
+                    if (good.length) answer.appendChild(evidence(good[good.length - 1]));
+                    const prose = el("div", "text");
+                    renderText(prose, data.response);
+                    answer.appendChild(prose);
+                    if (calls.length) answer.appendChild(work(calls));
+                } catch (e) {
+                    body.textContent = "Could not reach the server: " + e.message + ". Check that the app is running, then ask again.";
+                }
+                answer.classList.remove("pending");
+                sendBtn.disabled = false;
+                userInput.focus();
+                scrollDown();
+            }
+
+            document.getElementById("form").addEventListener("submit", (e) => { e.preventDefault(); ask(); });
+            document.getElementById("clear-btn").addEventListener("click", async () => {
+                if (sessionId) await fetch("/clear?session_id=" + encodeURIComponent(sessionId), { method: "POST" });
+                sessionId = null;
+                thread.replaceChildren();
+                empty.style.display = "";
+                userInput.focus();
+            });
+            userInput.focus();
+        </script>
+    </body>
+</html>
