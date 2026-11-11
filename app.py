@@ -178,7 +178,22 @@ def no_placeholder_strings(data) -> ToolGuardrailFunctionOutput:
     return ToolGuardrailFunctionOutput.allow()
 
 
-@function_tool(tool_input_guardrails=[select_only, needs_plan_year, no_placeholder_strings])
+@tool_input_guardrail
+def no_county_premium(data) -> ToolGuardrailFunctionOutput:
+    """Reject SQL that joins premiums to counties. No file maps counties to rating areas, so any such join
+    returns every rating area the issuer serves, which looks like an answer but is not one."""
+    query = json.loads(data.context.tool_arguments or "{}").get("query", "")
+    if re.search(r"(?i)\brates\b", query) and re.search(r"(?i)\bservice_area_counties\b", query):
+        return ToolGuardrailFunctionOutput.reject_content(
+            "Rejected: premiums cannot be tied to a county. The files give premiums by rating area and never say which "
+            "rating area a county is in, so this join mixes in every rating area the issuer serves. Do not try another "
+            "join. Tell the user the premium in a county is not in this data, then offer the state average or the "
+            "premium for a rating area, or list which issuers and plans are sold in the county."
+        )
+    return ToolGuardrailFunctionOutput.allow()
+
+
+@function_tool(tool_input_guardrails=[select_only, needs_plan_year, no_placeholder_strings, no_county_premium])
 def run_sql(query: str) -> str:
     """Run a BigQuery GoogleSQL query against the ACA tables and return the results.
 
@@ -236,7 +251,9 @@ Rules for this data:
    average of listed prices, not weighted by enrollment: call it the "average listed premium".
 7. Geography. Premiums vary by rating_area_id, and no file maps counties to rating areas. So you can
    answer county questions about which plans or issuers are available (service_area_counties), but not
-   the premium in a county. Say so and offer the state or rating area premium instead.
+   the premium in a county. For a premium in a county, do not run any query and do not try to work around
+   it with joins: they only return every rating area the issuer serves. Answer at once that the data
+   cannot say, and offer the state average or a rating area premium instead.
 8. Plan changes use crosswalk. plan_year is the year enrollees move into. Count plans with
    COUNT(DISTINCT prior_plan_id), since each plan has one row per county. A plan can appear under several
    outcomes when different counties were handled differently.
@@ -372,7 +389,13 @@ async def chat(request: ChatRequest):
         response, tool_calls = result.final_output, hooks.tool_calls
     except Exception as e:
         # Auth, billing, a model that is not running, too many turns: show it in the chat, not as a 500.
-        response, tool_calls = f"Model call failed: {type(e).__name__}: {str(e)[:300]}", hooks.tool_calls
+        if type(e).__name__ == "MaxTurnsExceeded":
+            response = ("I ran out of steps before reaching an answer. The question may need data these files do not hold, "
+                        "or it may be too broad. Try narrowing it to one state, one year or one plan type, and open "
+                        "\"How it got there\" to see where I got stuck.")
+        else:
+            response = f"Model call failed: {type(e).__name__}: {str(e)[:300]}"
+        tool_calls = hooks.tool_calls
 
     return ChatResponse(response=response, session_id=session_id, tool_calls=tool_calls)
 
