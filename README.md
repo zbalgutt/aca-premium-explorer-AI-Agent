@@ -4,9 +4,7 @@ A Text2SQL agent for the question "what does an ACA marketplace health plan actu
 
 **Who it is for:** people comparing marketplace plans, and analysts, journalists and students who want the real numbers behind premium headlines. It covers premiums by age, tobacco use and rating area, plan details, what each plan covers and charges per visit, which counties each plan serves, and what happened to last year's plans.
 
-**Live demo:** TODO (Cloud Run URL)
-
-https://aca-premium-explorer-ai-agent-git-707559739793.us-central1.run.app
+**Live demo:** https://aca-premium-explorer-ai-agent-git-707559739793.us-central1.run.app
 
 ## Background: the Affordable Care Act
 
