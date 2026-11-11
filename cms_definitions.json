@@ -1,0 +1,1502 @@
+{
+ "rate": {
+  "BusinessYear": {
+   "definition": "Year for which plan provides coverage to enrollees",
+   "comments": "N/A"
+  },
+  "StateCode": {
+   "definition": "Two-character state abbreviation indicating the state where the plan is offered",
+   "comments": "N/A"
+  },
+  "IssuerId": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in the Health Insurance Oversight System (HIOS)",
+   "comments": "N/A"
+  },
+  "SourceName": {
+   "definition": "Categorical identifier of source of data import",
+   "comments": "N/A"
+  },
+  "VersionNum": {
+   "definition": "Integer value for version of data import",
+   "comments": "This field is only available for the 2014 through 2016 datasets."
+  },
+  "ImportDate": {
+   "definition": "Date of data import",
+   "comments": "N/A"
+  },
+  "IssuerId2": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS",
+   "comments": "This field is only available for the 2014 through 2016 datasets."
+  },
+  "FederalTIN": {
+   "definition": "Tax ID Number of issuer",
+   "comments": "This field is only available for the 2014 through 2020 datasets."
+  },
+  "RateEffectiveDate": {
+   "definition": "Date that the insurance plan rate is effective",
+   "comments": "N/A"
+  },
+  "RateExpirationDate": {
+   "definition": "Date that the insurance plan rate expires",
+   "comments": "N/A"
+  },
+  "PlanId": {
+   "definition": "Fourteen-character alpha-numeric code that identifies an insurance plan within HIOS",
+   "comments": "N/A"
+  },
+  "RatingAreaId": {
+   "definition": "Identifier for the geographic rating area within a state",
+   "comments": "Each rating area identifier maps to a geographic region within the state (e.g., one or more counties, three-digit zip codes, or metropolitan statistical areas)."
+  },
+  "Tobacco": {
+   "definition": "Indicator of whether a rate is based on a subscriber's tobacco use",
+   "comments": "N/A"
+  },
+  "Age": {
+   "definition": "Indicator of whether a rate is based on a subscriber\u2019s age, or uses family-tier rating",
+   "comments": "If a rate is based on a subscriber\u2019s age, the age band associated with the rate is reported. If a rate uses family-tier rating, a value of Family Option is reported."
+  },
+  "IndividualRate": {
+   "definition": "Insurance rate applied to an individual in a rating area",
+   "comments": "If a plan rates by a subscriber\u2019s age and tobacco use, the rate applies to a non-tobacco user. If a plan rates by family-tier, the rate applies to the primary subscriber."
+  },
+  "IndividualTobaccoRate": {
+   "definition": "Insurance rate applied to a tobacco user in a rating area, for a plan that rates by a subscriber\u2019s age",
+   "comments": "This field is only applicable if Tobacco field equals Tobacco User/Non-Tobacco User."
+  },
+  "Couple": {
+   "definition": "Insurance rate applied to a primary subscriber and secondary subscriber (e.g., spouse) in a rating area, for a plan that rates by family-tier",
+   "comments": "This field is only applicable if Age field equals Family Option."
+  },
+  "PrimarySubscriberAndOneDependent": {
+   "definition": "Insurance rate applied to a primary subscriber and one dependent in a rating area, for a plan that rates by family-tier",
+   "comments": "This field is only applicable if Age field equals Family Option."
+  },
+  "PrimarySubscriberAndTwoDependents": {
+   "definition": "Insurance rate applied to a primary subscriber and two dependents in a rating area, for a plan that rates by family-tier",
+   "comments": "This field is only applicable if Age field equals Family Option."
+  },
+  "PrimarySubscriberAndThreeOrMoreDependents": {
+   "definition": "Insurance rate applied to a primary subscriber and three or more dependents in a rating area, for a plan that rates by family-tier",
+   "comments": "This field is only applicable if Age field equals Family Option."
+  },
+  "CoupleAndOneDependent": {
+   "definition": "Insurance rate applied to a primary subscriber and secondary subscriber (e.g., spouse) and one dependent in a rating area, for a plan that rates by family-tier",
+   "comments": "This field is only applicable if Age field equals Family Option."
+  },
+  "CoupleAndTwoDependents": {
+   "definition": "Insurance rate applied to a primary subscriber and secondary subscriber (e.g., spouse) and two dependents in a rating area, for a plan that rates by family-tier",
+   "comments": "This field is only applicable if Age field equals Family Option."
+  },
+  "CoupleAndThreeOrMoreDependents": {
+   "definition": "Insurance rate applied to a primary subscriber and secondary subscriber (e.g., spouse) and three or more dependents in a rating area, for a plan that rates by family-tier",
+   "comments": "This field is only applicable if Age field equals Family Option."
+  },
+  "RowNumber": {
+   "definition": "Integer value for template row number associated with this data record",
+   "comments": "This field is only available for the 2014 through 2016 datasets."
+  }
+ },
+ "plan_attributes": {
+  "BusinessYear": {
+   "definition": "Year for which plan provides coverage to enrollees",
+   "comments": "N/A"
+  },
+  "StateCode": {
+   "definition": "Two-character state abbreviation indicating the state where the plan is offered",
+   "comments": "N/A"
+  },
+  "IssuerId": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in the Health Insurance Oversight System (HIOS)",
+   "comments": "N/A"
+  },
+  "IssuerMarketplaceMarketingName": {
+   "definition": "Marketplace Marketing name of insurance company",
+   "comments": "This field is only available for the 2021 through 2027 datasets."
+  },
+  "SourceName": {
+   "definition": "Categorical identifier of source of data import",
+   "comments": "N/A"
+  },
+  "VersionNum": {
+   "definition": "Integer value for version of data import",
+   "comments": "This field is only available for the 2014 through 2016 datasets."
+  },
+  "ImportDate": {
+   "definition": "Date of data import",
+   "comments": "N/A"
+  },
+  "BenefitPackageId": {
+   "definition": "Numeric identifier of benefit package",
+   "comments": "This field is only available for the 2014 through 2016 datasets."
+  },
+  "IssuerId2": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS",
+   "comments": "This field is only available for the 2014 through 2016 datasets."
+  },
+  "StateCode2": {
+   "definition": "Two-character state abbreviation indicating the state where the plan is offered",
+   "comments": "This field is only available for the 2014 through 2016 datasets."
+  },
+  "MarketCoverage": {
+   "definition": "Categorical indicator of market coverage of plan",
+   "comments": "N/A"
+  },
+  "DentalOnlyPlan": {
+   "definition": "Categorical indicator of dental-only status of plan",
+   "comments": "N/A"
+  },
+  "TIN": {
+   "definition": "Tax ID Number of issuer",
+   "comments": "This field is only available for the 2014 through 2020 datasets."
+  },
+  "StandardComponentId": {
+   "definition": "Fourteen-character alpha-numeric code that identifies an insurance plan within HIOS",
+   "comments": "N/A"
+  },
+  "PlanMarketingName": {
+   "definition": "Marketing name of insurance plan",
+   "comments": "N/A"
+  },
+  "HIOSProductId": {
+   "definition": "Seven-character alpha-numeric code that identifies an insurance product within HIOS",
+   "comments": "N/A"
+  },
+  "HPID": {
+   "definition": "Identifies the insurance product using a National Health Plan Identifier",
+   "comments": "This field is only available for the 2014 through 2020 datasets."
+  },
+  "NetworkId": {
+   "definition": "Identifier for a health care provider network",
+   "comments": "Network IDs can be imported from the issuer\u2019s Network ID template, or entered manually by issuer."
+  },
+  "ServiceAreaId": {
+   "definition": "Identifier for a service area",
+   "comments": "Service Area IDs can be imported from the issuer\u2019s Service Area template, or entered manually by issuer."
+  },
+  "FormularyId": {
+   "definition": "Identifier for a drug formulary",
+   "comments": "Formulary IDs can be imported from the issuer\u2019s Prescription Drug template, or entered manually by issuer; this field is not applicable to dental plans."
+  },
+  "IsNewPlan": {
+   "definition": "Categorical indicator of whether the insurance plan is new for the current year or existed previously in the Marketplace",
+   "comments": "N/A"
+  },
+  "PlanType": {
+   "definition": "Type of insurance plan",
+   "comments": "N/A"
+  },
+  "MetalLevel": {
+   "definition": "Metal level, or coverage category, of insurance plan based on its actuarial value",
+   "comments": "Values of High and Low are only applicable to dental plans; values other than High and Low are only applicable only to medical plans."
+  },
+  "DesignType": {
+   "definition": "An indication of whether a plan is a Standardized Plan Option for its metal level, plan type and service area",
+   "comments": "This field is available for the 2017 through 2020 datasets as an indicator of whether a plan has a Standardized Plan Design, as indicated by Design Types 1 through 5; there are no further definitions of these Design Type values. This field is also available for the 2023 through 2027 datasets as an indicator of whether a plan is a Standardized Plan Option. The Allowable Values defined above are applicable to Plan Years 2023 through 2027. This field is not applicable to dental plans."
+  },
+  "UniquePlanDesign": {
+   "definition": "An indication that the health insurance plan has a unique design, for purposes of the Actuarial Value calculator",
+   "comments": "This field is not applicable to dental plans."
+  },
+  "QHPNonQHPTypeId": {
+   "definition": "Categorical indicator of a plan\u2019s Exchange status (On the Exchange, Off the Exchange)",
+   "comments": "N/A"
+  },
+  "IsNoticeRequiredForPregnancy": {
+   "definition": "An indication of whether notice to the issuer is required before pregnancy-related benefits will be covered",
+   "comments": "This field is not applicable to dental plans."
+  },
+  "IsReferralRequiredForSpecialist": {
+   "definition": "An indication of whether pre-authorization is required before a specialist visit",
+   "comments": "This field is not applicable to dental plans."
+  },
+  "SpecialistRequiringReferral": {
+   "definition": "The types of specialists that require pre-authorization",
+   "comments": "This field is not applicable to dental plans; this field is only required if IsReferralRequiredForSpecialist field equals Yes."
+  },
+  "PlanLevelExclusions": {
+   "definition": "Description of plan-level benefit exclusions",
+   "comments": "This field is optional; blanks indicate a value was not provided."
+  },
+  "IndianPlanVariationEstimatedAdvancedPaymentAmountPerEnrollee": {
+   "definition": "Estimated dollar amount of cost\u2013sharing reductions for eligible enrollees to be provided in the form of an advance payment to the issuer",
+   "comments": "This field is not applicable to dental plans; this field should be blank for medical plans."
+  },
+  "CompositeRatingOffered": {
+   "definition": "An indication of whether the plan uses composite premiums.",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field equals \u201cNo\u201d for individual market plans."
+  },
+  "ChildOnlyOffering": {
+   "definition": "The types of adult and child enrollment options (Allows Adult and Child-only, Allows Adult-only, Allows Child-only) of an insurance plan",
+   "comments": "This field is not applicable to catastrophic plans."
+  },
+  "ChildOnlyPlanId": {
+   "definition": "The HIOS Plan Identifier for the child-only insurance plan that corresponds to the adult-only insurance plan",
+   "comments": "This field is only applicable to adult-only plans and does not apply to catastrophic plans."
+  },
+  "WellnessProgramOffered": {
+   "definition": "An indication of whether an insurance plan offers wellness programs according to Section 2705 of the Public Health Service Act",
+   "comments": "This field is not applicable to dental plans."
+  },
+  "DiseaseManagementProgramsOffered": {
+   "definition": "Categorical indicator of whether the plan offers disease management programs for specific conditions",
+   "comments": "This field is not applicable to dental plans."
+  },
+  "EHBPercentTotalPremium": {
+   "definition": "The percent of the plan\u2019s total premium associated with coverage of Essential Health Benefit (EHB) services",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only valid for medical plans and is not required for catastrophic plans."
+  },
+  "EHBPercentPremiumS4": {
+   "definition": "The projected percent of the plan\u2019s total premium relative to the EHB benchmark plan for the state.",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only valid for medical plans."
+  },
+  "EHBPediatricDentalApportionmentQuantity": {
+   "definition": "The dollar amount or percentage of the EHB Apportionment for Pediatric Dental",
+   "comments": "This field is not applicable to medical plans. This field is a dollar amount for the 2014 through 2016 datasets, and is a percentage for the 2017 through 2027 datasets."
+  },
+  "IsGuaranteedRate": {
+   "definition": "An indication of whether the rates for the insurance plan are guaranteed or estimated",
+   "comments": "This field is not applicable to medical plans."
+  },
+  "AdultDentalServicesWaitingPeriod": {
+   "definition": "An indication of whether an insurance plan has an Adult Dental Services Waiting Period before a service offered under the plan is covered.",
+   "comments": "This field is not applicable to medical plans."
+  },
+  "WaitingPeriodDuration": {
+   "definition": "The Waiting Period duration date of on an insurance plan.",
+   "comments": "This field is not applicable to medical plans."
+  },
+  "PlanEffectiveDate": {
+   "definition": "Beginning date of enrollment coverage on an insurance plan",
+   "comments": "N/A"
+  },
+  "PlanExpirationDate": {
+   "definition": "Closing date of enrollment coverage on an insurance plan",
+   "comments": "This field is optional; blank or zero values indicate a value was not provided."
+  },
+  "OutOfCountryCoverage": {
+   "definition": "Indicates whether out of country coverage is provided for health services",
+   "comments": "N/A"
+  },
+  "OutOfCountryCoverageDescription": {
+   "definition": "The conditions under which out of country health services are covered",
+   "comments": "This field is only applicable to plans that offer out of country coverage."
+  },
+  "OutOfServiceAreaCoverage": {
+   "definition": "Indicates whether out of service area coverage is provided",
+   "comments": "N/A"
+  },
+  "OutOfServiceAreaCoverageDescription": {
+   "definition": "The conditions under which out of service area health services are covered",
+   "comments": "This field is only applicable to plans that offer out of service area coverage."
+  },
+  "NationalNetwork": {
+   "definition": "Indicates whether the insurance plan is supported by a national network of health service provider companies",
+   "comments": "N/A"
+  },
+  "URLForEnrollmentPayment": {
+   "definition": "The URL for Enrollment Payment",
+   "comments": "This field is optional; blank or zero values indicate a value was not provided."
+  },
+  "FormularyURL": {
+   "definition": "The URL for the prescription drug formulary associated with the plan",
+   "comments": "This field is only available for the 2015 through 2027 datasets. This field is only valid for medical plans."
+  },
+  "PlanId": {
+   "definition": "Seventeen-character alpha-numeric code that identifies an insurance plan\u2019s cost sharing reduction (CSR) variant within HIOS",
+   "comments": "Prepopulated in template; character count includes \u2018-\u2018"
+  },
+  "PlanVariantMarketingName": {
+   "definition": "Marketing name of the plan variation of the insurance plan",
+   "comments": "This field is only available for the 2017 through 2027 datasets."
+  },
+  "CSRVariationType": {
+   "definition": "Name of the cost sharing reduction options offered for a health insurance plan",
+   "comments": "Prepopulated in template."
+  },
+  "IssuerActuarialValue": {
+   "definition": "The numeric Actuarial Value (AV) generated manually for an insurance plan by the issuer",
+   "comments": "This field is only applicable to plans with a unique plan design."
+  },
+  "AVCalculatorOutputNumber": {
+   "definition": "The numeric AV generated by the template\u2019s AV Calculator for an insurance plan",
+   "comments": "This field is only applicable to medical plans and plans that do not have a unique plan design."
+  },
+  "MedicalDrugDeductiblesIntegrated": {
+   "definition": "An indication of whether the insurance plan specifies that the medical and drug deductibles are combined into one deductible",
+   "comments": "This field is not applicable to dental plans."
+  },
+  "MedicalDrugMaximumOutofPocketIntegrated": {
+   "definition": "An indication of whether the insurance plan specifies that the medical and drug maximum out of pocket (MOOP) limits are combined into one limit",
+   "comments": "This field is not applicable to dental plans."
+  },
+  "MultipleInNetworkTiers": {
+   "definition": "An indication of whether there are two in network tiers",
+   "comments": "N/A"
+  },
+  "FirstTierUtilization": {
+   "definition": "The expected percentage of utilization for the first in network tier",
+   "comments": "N/A"
+  },
+  "SecondTierUtilization": {
+   "definition": "The expected percentage of utilization for the second in network tier, based on the value entered for the first tier",
+   "comments": "Calculated by template."
+  },
+  "SBCHavingaBabyDeductible": {
+   "definition": "The dollar amount of the deductible for the sample Summary of Benefits & Coverage (SBC) scenario of having a baby",
+   "comments": "This field is optional; blanks indicate a value was not provided; this field is not applicable to dental plans."
+  },
+  "SBCHavingaBabyCopayment": {
+   "definition": "The dollar amount of the copayment for the sample SBC scenario of having a baby",
+   "comments": "This field is optional; blanks indicate a value was not provided; this field is not applicable to dental plans."
+  },
+  "SBCHavingaBabyCoinsurance": {
+   "definition": "The dollar amount of the coinsurance for the sample SBC scenario of having a baby",
+   "comments": "This field is optional; blanks indicate a value was not provided; this field is not applicable to dental plans."
+  },
+  "SBCHavingaBabyLimit": {
+   "definition": "The dollar amount of the benefit limits or exclusions for the sample SBC scenario of having a baby",
+   "comments": "This field is optional; blanks indicate a value was not provided; this field is not applicable to dental plans."
+  },
+  "SBCHavingDiabetesDeductible": {
+   "definition": "The dollar amount of the deductible for the sample SBC scenario of having diabetes",
+   "comments": "This field is optional; blanks indicate a value was not provided; this field is not applicable to dental plans."
+  },
+  "SBCHavingDiabetesCopayment": {
+   "definition": "The dollar amount of the copayment for the sample SBC scenario of having diabetes",
+   "comments": "This field is optional; blanks indicate a value was not provided; this field is not applicable to dental plans."
+  },
+  "SBCHavingDiabetesCoinsurance": {
+   "definition": "The dollar amount of the coinsurance for the sample SBC scenario of having diabetes",
+   "comments": "This field is optional; blanks indicate a value was not provided; this field is not applicable to dental plans."
+  },
+  "SBCHavingDiabetesLimit": {
+   "definition": "The dollar amount of the benefit limits or exclusions for the sample SBC scenario of having diabetes",
+   "comments": "This field is optional; blanks indicate a value was not provided; this field is not applicable to dental plans."
+  },
+  "SBCHavingSimplefractureDeductible": {
+   "definition": "The dollar amount of the deductible for the sample SBC scenario of treatment of a simple fracture",
+   "comments": "This field is only available for the 2017 through 2027 datasets. This field is optional; blanks indicate a value was not provided; this field is not applicable to dental plans."
+  },
+  "SBCHavingSimplefractureCopayment": {
+   "definition": "The dollar amount of the copayment for the sample SBC scenario of treatment of a simple fracture",
+   "comments": "This field is only available for the 2017 through 2027 datasets. This field is optional; blanks indicate a value was not provided; this field is not applicable to dental plans."
+  },
+  "SBCHavingSimplefractureCoinsurance": {
+   "definition": "The dollar amount of the coinsurance for the sample SBC scenario of treatment of a simple fracture",
+   "comments": "This field is only available for the 2017 through 2027 datasets. This field is optional; blanks indicate a value was not provided; this field is not applicable to dental plans."
+  },
+  "SBCHavingSimplefractureLimit": {
+   "definition": "The dollar amount of the benefit limits or exclusions for the sample SBC scenario of treatment of a simple fracture",
+   "comments": "This field is only available for the 2017 through 2027 datasets. This field is optional; blanks indicate a value was not provided; this field is not applicable to dental plans."
+  },
+  "SpecialtyDrugMaximumCoinsurance": {
+   "definition": "The maximum dollar value of coinsurance for specialty high-cost drugs",
+   "comments": "This field is optional; blanks indicate a value was not provided."
+  },
+  "InpatientCopaymentMaximumDays": {
+   "definition": "The maximum number of days for which a patient can be charged a copayment for an inpatient stay, if the insurance plan design charges inpatient stays by day",
+   "comments": "This field is optional; blank or zero values indicate a value was not provided."
+  },
+  "BeginPrimaryCareCostSharingAfterNumberOfVisits": {
+   "definition": "The maximum number of fully covered visits allowed, after which primary care cost sharing will begin",
+   "comments": "This field is optional; blank or zero values indicate a value was not provided."
+  },
+  "BeginPrimaryCareDeductibleCoinsuranceAfterNumberOfCopays": {
+   "definition": "The maximum number of primary care visits with co-payment allowed, after which all primary care visits will be subject to the deductible or maximum out of pocket limits",
+   "comments": "This field is optional; blank or zero values indicate a value was not provided."
+  },
+  "MEHBInnTier1IndividualMOOP": {
+   "definition": "The dollar amount of the tier 1 in network, individual out-of-pocket cost limit for medical EHB benefits",
+   "comments": "This field is only applicable to plans with separate medical and drug MOOP limits; for dental plans, this field contains the MOOP value for dental benefits."
+  },
+  "MEHBInnTier1FamilyMOOP": {
+   "definition": "The dollar amount of the tier 1 in network, family out-of-pocket cost limit for medical EHB benefits",
+   "comments": "This field only applies to the 2014 and 2015 datasets. This field is only applicable to plans with separate medical and drug MOOP limits; for dental plans, this field contains the MOOP value for dental benefits."
+  },
+  "MEHBInnTier1FamilyPerPersonMOOP": {
+   "definition": "The dollar amount of the tier 1 in network, family per person out-of- pocket cost limit for medical EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug MOOP limits; for dental plans, this field contains the MOOP value for dental benefits."
+  },
+  "MEHBInnTier1FamilyPerGroupMOOP": {
+   "definition": "The dollar amount of the tier 1 in network, family per group out-of- pocket cost limit for medical EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug MOOP limits; for dental plans, this field contains the MOOP value for dental benefits."
+  },
+  "MEHBInnTier2IndividualMOOP": {
+   "definition": "The dollar amount of the tier 2 in network, individual out-of-pocket cost limit for medical EHB benefits",
+   "comments": "This field is only applicable to plans with multiple in network tiers and separate medical and drug MOOP limits; for dental plans, this field contains the MOOP value for dental benefits."
+  },
+  "MEHBInnTier2FamilyMOOP": {
+   "definition": "The dollar amount of the tier 2 in network, family out-of-pocket cost limit for medical EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with multiple in network tiers and separate medical and drug MOOP limits; this field contains the MOOP value for dental benefits."
+  },
+  "MEHBInnTier2FamilyPerPersonMOOP": {
+   "definition": "The dollar amount of the tier 2 in network, family per person out-of- pocket cost limit for medical EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with multiple in network tiers and separate medical and drug MOOP limits; this field contains the MOOP value for dental benefits."
+  },
+  "MEHBInnTier2FamilyPerGroupMOOP": {
+   "definition": "The dollar amount of the tier 2 in network, family per group out-of- pocket cost limit for medical EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with multiple in network tiers and separate medical and drug MOOP limits; this field contains the MOOP value for dental benefits."
+  },
+  "MEHBOutOfNetIndividualMOOP": {
+   "definition": "The dollar amount of the out of network, individual out-of-pocket cost limit for medical EHB benefits",
+   "comments": "This field is only applicable to plans with separate medical and drug MOOP limits; for dental plans, this field contains the MOOP value for dental benefits."
+  },
+  "MEHBOutOfNetFamilyMOOP": {
+   "definition": "The dollar amount of the out of network, family out-of-pocket cost limit for medical EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with separate medical and drug MOOP limits; for dental plans, this field contains the MOOP value for dental benefits."
+  },
+  "MEHBOutOfNetFamilyPerPersonMOOP": {
+   "definition": "The dollar amount of the out of network, family per person out-of- pocket cost limit for medical EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug MOOP limits; for dental plans, this field contains the MOOP value for dental benefits."
+  },
+  "MEHBOutOfNetFamilyPerGroupMOOP": {
+   "definition": "The dollar amount of the out of network, family per group out-of- pocket cost limit for medical EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug MOOP limits; for dental plans, this field contains the MOOP value for dental benefits."
+  },
+  "MEHBCombInnOonIndividualMOOP": {
+   "definition": "The dollar amount of the combined in/out of network, individual out- of-pocket cost limit for medical EHB benefits",
+   "comments": "This field is only applicable to plans with separate medical and drug MOOP limits; for dental plans, this field contains the MOOP value for dental benefits."
+  },
+  "MEHBCombInnOonFamilyMOOP": {
+   "definition": "The dollar amount of the combined in/out of network, family out-of- pocket cost limit for medical EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with separate medical and drug MOOP limits; for dental plans, this field contains the MOOP value for dental benefits."
+  },
+  "MEHBCombInnOonFamilyPerPersonMOOP": {
+   "definition": "The dollar amount of the combined in/out of network, family per person out-of-pocket cost limit for medical EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug MOOP limits; for dental plans, this field contains the MOOP value for dental benefits."
+  },
+  "MEHBCombInnOonFamilyPerGroupMOOP": {
+   "definition": "The dollar amount of the combined in/out of network, family per group out-of-pocket cost limit for medical EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug MOOP limits; for dental plans, this field contains the MOOP value for dental benefits."
+  },
+  "DEHBInnTier1IndividualMOOP": {
+   "definition": "The dollar amount of the tier 1 in network, individual out-of-pocket cost limit for drug EHB benefits",
+   "comments": "This field is only applicable to plans with separate medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "DEHBInnTier1FamilyMOOP": {
+   "definition": "The dollar amount of the tier 1 in network, family out-of-pocket cost limit for drug EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with separate medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "DEHBInnTier1FamilyPerPersonMOOP": {
+   "definition": "The dollar amount of the tier 1 in network, family per person out-of- pocket cost limit for drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "DEHBInnTier1FamilyPerGroupMOOP": {
+   "definition": "The dollar amount of the tier 1 in network, family per group out-of- pocket cost limit for drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "DEHBInnTier2IndividualMOOP": {
+   "definition": "The dollar amount of the tier 2 in network, individual out-of-pocket cost limit for drug EHB benefits",
+   "comments": "This field is only applicable to plans with multiple in network tiers and separate medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "DEHBInnTier2FamilyMOOP": {
+   "definition": "The dollar amount of the tier 2 in network, family out-of-pocket cost limit for drug EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with multiple in network tiers and separate medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "DEHBInnTier2FamilyPerPersonMOOP": {
+   "definition": "The dollar amount of the tier 2 in network, family per person out-of- pocket cost limit for drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with multiple in network tiers and separate medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "DEHBInnTier2FamilyPerGroupMOOP": {
+   "definition": "The dollar amount of the tier 2 in network, family per group out-of- pocket cost limit for drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with multiple in network tiers and separate medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "DEHBOutOfNetIndividualMOOP": {
+   "definition": "The dollar amount of the out of network, individual out-of-pocket cost limit for drug EHB benefits",
+   "comments": "This field is only applicable to plans with separate medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "DEHBOutOfNetFamilyMOOP": {
+   "definition": "The dollar amount of the out of network, family out-of-pocket cost limit for drug EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with separate medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "DEHBOutOfNetFamilyPerPersonMOOP": {
+   "definition": "The dollar amount of the out of network, family per person out-of- pocket cost limit for drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "DEHBOutOfNetFamilyPerGroupMOOP": {
+   "definition": "The dollar amount of the out of network, family per group out-of- pocket cost limit for drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "DEHBCombInnOonIndividualMOOP": {
+   "definition": "The dollar amount of the combined in/out of network, individual out- of-pocket cost limit for drug EHB benefits",
+   "comments": "This field is only applicable to plans with separate medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "DEHBCombInnOonFamilyMOOP": {
+   "definition": "The dollar amount of the combined in/out of network, family out-of- pocket cost limit for drug EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with separate medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "DEHBCombInnOonFamilyPerPersonMOOP": {
+   "definition": "The dollar amount of the combined in/out of network, family per person out-of-pocket cost limit for drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "DEHBCombInnOonFamilyPerGroupMOOP": {
+   "definition": "The dollar amount of the combined in/out of network, family per group out-of-pocket cost limit for drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "TEHBInnTier1IndividualMOOP": {
+   "definition": "The dollar amount of the tier 1 in network, individual out-of-pocket cost limit for medical and drug EHB benefits",
+   "comments": "This field is only applicable to plans with combined medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "TEHBInnTier1FamilyMOOP": {
+   "definition": "The dollar amount of the tier 1 in network, family out-of-pocket cost limit for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with combined medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "TEHBInnTier1FamilyPerPersonMOOP": {
+   "definition": "The dollar amount of the tier 1 in network, family per person out-of- pocket cost limit for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with combined medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "TEHBInnTier1FamilyPerGroupMOOP": {
+   "definition": "The dollar amount of the tier 1 in network, family per group out-of- pocket cost limit for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with combined medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "TEHBInnTier2IndividualMOOP": {
+   "definition": "The dollar amount of the tier 2 in network, individual out-of-pocket cost limit for medical and drug EHB benefits",
+   "comments": "This field is only applicable to plans with multiple in network tiers and combined medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "TEHBInnTier2FamilyMOOP": {
+   "definition": "The dollar amount of the tier 2 in network, family out-of-pocket cost limit for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with multiple in network tiers and combined medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "TEHBInnTier2FamilyPerPersonMOOP": {
+   "definition": "The dollar amount of the tier 2 in network, family per person out-of- pocket cost limit for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with multiple in network tiers and combined medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "TEHBInnTier2FamilyPerGroupMOOP": {
+   "definition": "The dollar amount of the tier 2 in network, family per group out-of- pocket cost limit for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with multiple in network tiers and combined medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "TEHBOutOfNetIndividualMOOP": {
+   "definition": "The dollar amount of the out of network, individual out-of-pocket cost limit for medical and drug EHB benefits",
+   "comments": "This field is only applicable to plans with combined medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "TEHBOutOfNetFamilyMOOP": {
+   "definition": "The dollar amount of the out of network, family out-of-pocket cost limit for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with combined medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "TEHBOutOfNetFamilyPerPersonMOOP": {
+   "definition": "The dollar amount of the out of network, family per person out-of- pocket cost limit for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with combined medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "TEHBOutOfNetFamilyPerGroupMOOP": {
+   "definition": "The dollar amount of the out of network, family per group out-of- pocket cost limit for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with combined medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "TEHBCombInnOonIndividualMOOP": {
+   "definition": "The dollar amount of the combined in/out of network, individual out- of-pocket cost limit for medical and drug EHB benefits",
+   "comments": "This field is only applicable to plans with combined medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "TEHBCombInnOonFamilyMOOP": {
+   "definition": "The dollar amount of the combined in/out of network, family out-of- pocket cost limit for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with combined medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "TEHBCombInnOonFamilyPerPersonMOOP": {
+   "definition": "The dollar amount of the combined in/out of network, family per person out-of-pocket cost limit for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with combined medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "TEHBCombInnOonFamilyPerGroupMOOP": {
+   "definition": "The dollar amount of the combined in/out of network, family per group out-of-pocket cost limit for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with combined medical and drug MOOP limits; this field is blank for dental plans."
+  },
+  "MEHBDedInnTier1Individual": {
+   "definition": "The dollar amount of the tier 1 in network, individual deductible for medical EHB benefits",
+   "comments": "This field is only applicable to plans with separate medical and drug deductibles; for dental plans, this field contains the deductible for dental benefits."
+  },
+  "MEHBDedInnTier1Family": {
+   "definition": "The dollar amount of the tier 1 in network, family deductible for medical EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with separate medical and drug deductibles; for dental plans, this field contains the deductible for dental benefits."
+  },
+  "MEHBDedInnTier1FamilyPerPerson": {
+   "definition": "The dollar amount of the tier 1 in network, family per person deductible for medical EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug deductibles; for dental plans, this field contains the deductible for dental benefits."
+  },
+  "MEHBDedInnTier1FamilyPerGroup": {
+   "definition": "The dollar amount of the tier 1 in network, family per group deductible for medical EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug deductibles; for dental plans, this field contains the deductible for dental benefits."
+  },
+  "MEHBDedInnTier1Coinsurance": {
+   "definition": "The percentage used for the tier 1 in network coinsurance for medical EHB benefits, unless a different coinsurance is listed for a specific benefit",
+   "comments": "This field is only applicable to plans with separate medical and drug deductibles; this field is blank for dental plans."
+  },
+  "MEHBDedInnTier2Individual": {
+   "definition": "The dollar amount of the tier 2 in network, individual deductible for medical EHB benefits",
+   "comments": "This field is only applicable to plans with multiple in network tiers and separate medical and drug deductibles; for dental plans, this field contains the deductible for dental benefits."
+  },
+  "MEHBDedInnTier2Family": {
+   "definition": "The dollar amount of the tier 2 in network, family deductible for medical EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with multiple in network tiers and separate medical and drug deductibles; for dental plans, this field contains the deductible for dental benefits."
+  },
+  "MEHBDedInnTier2FamilyPerPerson": {
+   "definition": "The dollar amount of the tier 2 in network, family per person deductible for medical EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with multiple in network tiers and separate medical and drug deductibles; for dental plans, this field contains the deductible for dental benefits."
+  },
+  "MEHBDedInnTier2FamilyPerGroup": {
+   "definition": "The dollar amount of the tier 2 in network, family per group deductible for medical EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with multiple in network tiers and separate medical and drug deductibles; for dental plans, this field contains the deductible for dental benefits."
+  },
+  "MEHBDedInnTier2Coinsurance": {
+   "definition": "The percentage used for the tier 2 in network coinsurance for medical EHB benefits, unless a different coinsurance is listed for a specific benefit",
+   "comments": "This field is only applicable to plans with multiple in network tiers and separate medical and drug deductibles; this field will be blank for dental plans."
+  },
+  "MEHBDedOutOfNetIndividual": {
+   "definition": "The dollar amount of the out of network, individual deductible for medical EHB benefits",
+   "comments": "This field is only applicable to plans with separate medical and drug deductibles; for dental plans, this field contains the deductible for dental benefits."
+  },
+  "MEHBDedOutOfNetFamily": {
+   "definition": "The dollar amount of the out of network, family deductible for medical EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with separate medical and drug deductibles; for dental plans, this field contains the deductible for dental benefits."
+  },
+  "MEHBDedOutOfNetFamilyPerPerson": {
+   "definition": "The dollar amount of the out of network, family per person deductible for medical EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug deductibles; for dental plans, this field contains the deductible for dental benefits."
+  },
+  "MEHBDedOutOfNetFamilyPerGroup": {
+   "definition": "The dollar amount of the out of network, family per group deductible for medical EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug deductibles; for dental plans, this field contains the deductible for dental benefits."
+  },
+  "MEHBDedCombInnOonIndividual": {
+   "definition": "The dollar amount of the combined in/out of network, individual deductible for medical EHB benefits",
+   "comments": "This field is only applicable to plans with separate medical and drug deductibles; for dental plans, this field contains the deductible for dental benefits."
+  },
+  "MEHBDedCombInnOonFamily": {
+   "definition": "The dollar amount of the combined in/out of network, family deductible for medical EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with separate medical and drug deductibles; for dental plans, this field contains the deductible for dental benefits."
+  },
+  "MEHBDedCombInnOonFamilyPerPerson": {
+   "definition": "The dollar amount of the combined in/out of network, family per person deductible for medical EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug deductibles; for dental plans, this field contains the deductible for dental benefits."
+  },
+  "MEHBDedCombInnOonFamilyPerGroup": {
+   "definition": "The dollar amount of the combined in/out of network, family per group deductible for medical EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug deductibles; for dental plans, this field contains the deductible for dental benefits."
+  },
+  "DEHBDedInnTier1Individual": {
+   "definition": "The dollar amount of the tier 1 in network, individual deductible for drug EHB benefits",
+   "comments": "This field is only applicable to plans with separate medical and drug deductibles; for dental plans, this field contains the deductible for dental benefits."
+  },
+  "DEHBDedInnTier1Family": {
+   "definition": "The dollar amount of the tier 1 in network, family deductible for drug EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with separate medical and drug deductibles; for dental plans, this field contains the deductible for dental benefits."
+  },
+  "DEHBDedInnTier1FamilyPerPerson": {
+   "definition": "The dollar amount of the tier 1 in network, family per person deductible for drug EHB benefits",
+   "comments": ""
+  },
+  "DEHBDedInnTier1FamilyPerGroup": {
+   "definition": "The dollar amount of the tier 1 in network, family per group deductible for drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug deductibles; for dental plans, this field contains the deductible for dental benefits."
+  },
+  "DEHBDedInnTier1Coinsurance": {
+   "definition": "The percentage used for the tier 1 in network coinsurance for drug EHB benefits, unless a different coinsurance is listed for a specific benefit",
+   "comments": "This field is only applicable to plans with separate medical and drug deductibles; this field is blank for dental plans."
+  },
+  "DEHBDedInnTier2Individual": {
+   "definition": "The dollar amount of the tier 2 in network, individual deductible for drug EHB benefits",
+   "comments": "This field is only applicable to plans with multiple in network tiers and separate medical and drug deductibles; this field is blank for dental plans."
+  },
+  "DEHBDedInnTier2Family": {
+   "definition": "The dollar amount of the tier 2 in network, family deductible for drug EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with multiple in network tiers and separate medical and drug deductibles; this field is blank for dental plans."
+  },
+  "DEHBDedInnTier2FamilyPerPerson": {
+   "definition": "The dollar amount of the tier 2 in network, family per person deductible for drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with multiple in network tiers and separate medical and drug deductibles; this field is blank for dental plans."
+  },
+  "DEHBDedInnTier2FamilyPerGroup": {
+   "definition": "The dollar amount of the tier 2 in network, family per group deductible for drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with multiple in network tiers and separate medical and drug deductibles; this field is blank for dental plans."
+  },
+  "DEHBDedInnTier2Coinsurance": {
+   "definition": "The percentage used for the tier 2 in network coinsurance for drug EHB benefits, unless a different coinsurance is listed for a specific benefit",
+   "comments": "This field is only applicable to plans with multiple in network tiers and separate medical and drug deductibles; this field is blank for dental plans."
+  },
+  "DEHBDedOutOfNetIndividual": {
+   "definition": "The dollar amount of the out of network, individual deductible for drug EHB benefits",
+   "comments": "This field is only applicable to plans with separate medical and drug deductibles; this field is blank for dental plans."
+  },
+  "DEHBDedOutofNetFamily": {
+   "definition": "The dollar amount of the out of network, family deductible for drug EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with separate medical and drug deductibles; this field is blank for dental plans."
+  },
+  "DEHBDedOutofNetFamilyPerPerson": {
+   "definition": "The dollar amount of the out of network, family per person deductible for drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug deductibles; this field is blank for dental plans."
+  },
+  "DEHBDedOutofNetFamilyPerGroup": {
+   "definition": "The dollar amount of the out of network, family per group deductible for drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug deductibles; this field is blank for dental plans."
+  },
+  "DEHBDedCombInnOonIndividual": {
+   "definition": "The dollar amount of the combined in/out of network, individual deductible for drug EHB benefits",
+   "comments": "This field is only applicable to plans with separate medical and drug deductibles; this field is blank for dental plans."
+  },
+  "DEHBDedCombInnOonFamily": {
+   "definition": "The dollar amount of the combined in/out of network, family deductible for drug EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with separate medical and drug deductibles; this field is blank for dental plans."
+  },
+  "DEHBDedCombInnOonFamilyPerPerson": {
+   "definition": "The dollar amount of the combined in/out of network, family per person deductible for drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug deductibles; this field is blank for dental plans."
+  },
+  "DEHBDedCombInnOonFamilyPerGroup": {
+   "definition": "The dollar amount of the combined in/out of network, family per group deductible for drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with separate medical and drug deductibles; this field is blank for dental plans."
+  },
+  "TEHBDedInnTier1Individual": {
+   "definition": "The dollar amount of the tier 1 in network, individual deductible for medical and drug EHB benefits",
+   "comments": "This field is only applicable to plans with combined medical and drug deductibles; this field is blank for dental plans."
+  },
+  "TEHBDedInnTier1Family": {
+   "definition": "The dollar amount of the tier 1 in network, family deductible for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with combined medical and drug deductibles; this field is blank for dental plans."
+  },
+  "TEHBDedInnTier1FamilyPerPerson": {
+   "definition": "The dollar amount of the tier 1 in network, family per person deductible for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with combined medical and drug deductibles; this field is blank for dental plans."
+  },
+  "TEHBDedInnTier1FamilyPerGroup": {
+   "definition": "The dollar amount of the tier 1 in network, family per group deductible for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with combined medical and drug deductibles; this field is blank for dental plans."
+  },
+  "TEHBDedInnTier1Coinsurance": {
+   "definition": "The percentage used for the tier 1 in network coinsurance for medical and drug EHB benefits, unless a different coinsurance is listed for a specific benefit",
+   "comments": "This field is only applicable to plans with combined medical and drug deductibles; this field is blank for dental plans."
+  },
+  "TEHBDedInnTier2Individual": {
+   "definition": "The dollar amount of the tier 2 in network, individual deductible for medical and drug EHB benefits",
+   "comments": "This field is only applicable to plans with multiple in network tiers and combined medical and drug deductibles; this field is blank for dental plans."
+  },
+  "TEHBDedInnTier2Family": {
+   "definition": "The dollar amount of the tier 2 in network, family deductible for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with multiple in network tiers and combined medical and drug deductibles; this field is blank for dental plans."
+  },
+  "TEHBDedInnTier2FamilyPerPerson": {
+   "definition": "The dollar amount of the tier 2 in network, family per person deductible for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with multiple in network tiers and combined medical and drug deductibles; this field is blank for dental plans."
+  },
+  "TEHBDedInnTier2FamilyPerGroup": {
+   "definition": "The dollar amount of the tier 2 in network, family per group deductible for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with multiple in network tiers and combined medical and drug deductibles; this field is blank for dental plans."
+  },
+  "TEHBDedInnTier2Coinsurance": {
+   "definition": "The percentage used for the tier 2 in network coinsurance for medical and drug EHB benefits, unless a different coinsurance is listed for a specific benefit",
+   "comments": "This field is only applicable to plans with multiple in network tiers and combined medical and drug deductibles; this field is blank for dental plans."
+  },
+  "TEHBDedOutOfNetIndividual": {
+   "definition": "The dollar amount of the out of network, individual deductible for medical and drug EHB benefits",
+   "comments": "This field is only applicable to plans with combined medical and drug deductibles; this field is blank for dental plans."
+  },
+  "TEHBDedOutofNetFamily": {
+   "definition": "The dollar amount of the out of network, family deductible for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with combined medical and drug deductibles; this field is blank for dental plans."
+  },
+  "TEHBDedOutofNetFamilyPerPerson": {
+   "definition": "The dollar amount of the out of network, family per person deductible for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with combined medical and drug deductibles; this field is blank for dental plans."
+  },
+  "TEHBDedOutofNetFamilyPerGroup": {
+   "definition": "The dollar amount of the out of network, family per group deductible for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with combined medical and drug deductibles; this field is blank for dental plans."
+  },
+  "TEHBDedCombInnOonIndividual": {
+   "definition": "The dollar amount of the combined in/out of network, individual deductible for medical and drug EHB benefits",
+   "comments": "This field is only applicable to plans with combined medical and drug deductibles; this field is blank for dental plans."
+  },
+  "TEHBDedCombInnOonFamily": {
+   "definition": "The dollar amount of the combined in/out of network, family deductible for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2014 and 2015 datasets. This field is only applicable to plans with combined medical and drug deductibles; this field is blank for dental plans."
+  },
+  "TEHBDedCombInnOonFamilyPerPerson": {
+   "definition": "The dollar amount of the combined in/out of network, family per person deductible for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with combined medical and drug deductibles; this field is blank for dental plans."
+  },
+  "TEHBDedCombInnOonFamilyPerGroup": {
+   "definition": "The dollar amount of the combined in/out of network, family per group deductible for medical and drug EHB benefits",
+   "comments": "This field is only available for the 2016 through 2027 datasets. This field is only applicable to plans with combined medical and drug deductibles; this field is blank for dental plans."
+  },
+  "IsHSAEligible": {
+   "definition": "An indication that the insurance plan qualifies as a Health Savings Account (HSA) eligible plan",
+   "comments": "This field is not applicable to dental plans."
+  },
+  "HSAOrHRAEmployerContribution": {
+   "definition": "An indication that the employer makes an HSA or health reimbursement arrangement (HRA) contribution",
+   "comments": "This field is only applicable to medical plans in the SHOP market."
+  },
+  "HSAOrHRAEmployerContributionAmount": {
+   "definition": "The dollar amount per employee that the employer contributes to the HSA or HRA",
+   "comments": "This field is only applicable to medical plans in the SHOP market and only required if HSAOrHRAEmployerContribution field equals Yes."
+  },
+  "URLForSummaryofBenefitsCoverage": {
+   "definition": "The URL for the Summary of Benefits & Coverage",
+   "comments": "This field is optional; blank or zero values indicate a value was not provided."
+  },
+  "PlanBrochure": {
+   "definition": "The URL for the Plan Brochure",
+   "comments": "This field is optional; blank or zero values indicate a value was not provided."
+  },
+  "RowNumber": {
+   "definition": "Template row number associated with this data record",
+   "comments": "This field is only available for the 2014 through 2016 datasets."
+  }
+ },
+ "service_area": {
+  "BusinessYear": {
+   "definition": "Year for which plan provides coverage to enrollees",
+   "comments": "N/A"
+  },
+  "StateCode": {
+   "definition": "Two-character state abbreviation indicating the state where the plan is offered",
+   "comments": "N/A"
+  },
+  "IssuerId": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in the Health Insurance Oversight System (HIOS)",
+   "comments": "N/A"
+  },
+  "SourceName": {
+   "definition": "Categorical identifier of source of data import",
+   "comments": "N/A"
+  },
+  "VersionNum": {
+   "definition": "Integer value for version of data import",
+   "comments": "This field is only available for the 2014 through 2016 datasets."
+  },
+  "ImportDate": {
+   "definition": "Date of data import",
+   "comments": "N/A"
+  },
+  "IssuerId2": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS",
+   "comments": "This field is only available for the 2014 through 2016 datasets."
+  },
+  "StateCode2": {
+   "definition": "Two-character state abbreviation indicating the state where the plan is offered",
+   "comments": "This field is only available for the 2014 through 2016 datasets."
+  },
+  "ServiceAreaId": {
+   "definition": "Identifier for a service area",
+   "comments": "N/A"
+  },
+  "ServiceAreaName": {
+   "definition": "Name of a service area",
+   "comments": "N/A"
+  },
+  "CoverEntireState": {
+   "definition": "Categorical indicator of whether entire state is covered by the service area",
+   "comments": "N/A"
+  },
+  "County": {
+   "definition": "Federal Information Processing Standards (FIPS) code assigned to the county within a state that is covered by the service area",
+   "comments": "This field is only applicable if CoverEntireState field equals No."
+  },
+  "PartialCounty": {
+   "definition": "Categorical indicator of whether entire county is covered by the service area",
+   "comments": "This field is only applicable if CoverEntireState field equals No."
+  },
+  "ZipCodes": {
+   "definition": "Zip codes within the partial-county region covered by the service area",
+   "comments": "This field is only applicable if PartialCounty field equals Yes; field could be truncated at 256 characters if exported to Excel or Access."
+  },
+  "PartialCountyJustification": {
+   "definition": "The justification given for creating a partial-county region for inclusion in a Service Area.",
+   "comments": "This field is only applicable if PartialCounty field equals Yes; field may be truncated at 256 characters if exported to Excel or Access."
+  },
+  "RowNumber": {
+   "definition": "Integer value for template row number associated with this data record",
+   "comments": "This field is only available for the 2014 through 2016 datasets."
+  },
+  "MarketCoverage": {
+   "definition": "Categorical indicator of market coverage of plans submitted with this template",
+   "comments": "Blank for HIOS data (does not apply)"
+  },
+  "DentalOnlyPlan": {
+   "definition": "Categorical indicator of dental-only status of plans submitted with this template",
+   "comments": "Blank for HIOS data (does not apply)"
+  }
+ },
+ "crosswalk": {
+  "State": {
+   "definition": "Two-character state abbreviation indicating the state where the plan is offered",
+   "comments": "N/A"
+  },
+  "DentalPlan": {
+   "definition": "Categorical indicator that the plan is a stand-alone dental plan (SADP)",
+   "comments": "N/A"
+  },
+  "PlanID_2014": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the 2014 insurance plan in the Health Insurance Oversight System (HIOS)",
+   "comments": "This field is only available for the 2015 dataset."
+  },
+  "PlanID_2015": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the 2015 insurance plan in the Health Insurance Oversight System (HIOS)",
+   "comments": "This field is only available for the 2015 and 2016 datasets."
+  },
+  "PlanID_2016": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the 2016 insurance plan in the Health Insurance Oversight System (HIOS)",
+   "comments": "This field is only available for the 2016 and 2017 datasets."
+  },
+  "PlanID_2017": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the 2017 insurance plan in the Health Insurance Oversight System (HIOS)",
+   "comments": "This field is only available for the 2017 and 2018 datasets."
+  },
+  "PlanID_2018": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the 2018 insurance plan in the Health Insurance Oversight System (HIOS)",
+   "comments": "This field is only available for the 2018 and 2019 datasets."
+  },
+  "PlanID_2019": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the 2019 insurance plan in the Health Insurance Oversight System (HIOS)",
+   "comments": "This field is only available for the 2019 and 2020 datasets."
+  },
+  "PlanID_2020": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the 2020 insurance plan in the Health Insurance Oversight System (HIOS)",
+   "comments": "This field is only available for the 2020 and 2021 datasets."
+  },
+  "PlanID_2021": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the 2021 insurance plan in the Health Insurance Oversight System (HIOS)",
+   "comments": "This field is only available for the 2021 and 2022 datasets."
+  },
+  "PlanID_2022": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the 2022 insurance plan in the Health Insurance Oversight System (HIOS)",
+   "comments": "This field is only available for the 2022 and 2023 datasets."
+  },
+  "PlanID_2023": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the 2023 insurance plan in the Health Insurance Oversight System (HIOS)",
+   "comments": "This field is only available for the 2023 and 2024 datasets."
+  },
+  "PlanID_2024": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the 2024 insurance plan in the Health Insurance Oversight System (HIOS)",
+   "comments": "This field is only available for the 2024 and 2025 datasets."
+  },
+  "PlanID_2025": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the 2025 insurance plan in the Health Insurance Oversight System (HIOS)",
+   "comments": "This field is only available for the 2025 and 2026 datasets."
+  },
+  "PlanID_2026": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the 2026 insurance plan in the Health Insurance Oversight System (HIOS)",
+   "comments": "This field is only available for the 2026 and 2027 datasets."
+  },
+  "PlanID_2027": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the 2027 insurance plan in the Health Insurance Oversight System (HIOS)",
+   "comments": "This field is only available for the 2027 dataset."
+  },
+  "IssuerID_2014": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2014 plan",
+   "comments": "This field is only available for the 2015 dataset."
+  },
+  "IssuerID_2015": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2015 plan",
+   "comments": "This field is only available for the 2015 and 2016 datasets."
+  },
+  "IssuerID_2016": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2016 plan",
+   "comments": "This field is only available for the 2016 and 2017 datasets."
+  },
+  "IssuerID_2017": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2017 plan",
+   "comments": "This field is only available for the 2017 and 2018 datasets."
+  },
+  "IssuerID_2018": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2018 plan",
+   "comments": "This field is only available for the 2018 and 2019 datasets."
+  },
+  "IssuerID_2019": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2019 plan",
+   "comments": "This field is only available for the 2019 and 2020 datasets."
+  },
+  "IssuerID_2020": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2020 plan",
+   "comments": "This field is only available for the 2020 and 2021 datasets."
+  },
+  "IssuerID_2021": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2021 plan",
+   "comments": "This field is only available for the 2021 and 2022 datasets."
+  },
+  "IssuerID_2022": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2022 plan",
+   "comments": "This field is only available for the 2022 and 2023 datasets."
+  },
+  "IssuerID_2023": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2023 plan",
+   "comments": "This field is only available for the 2023 and 2024 datasets."
+  },
+  "IssuerID_2024": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2024 plan",
+   "comments": "This field is only available for the 2024 and 2025 datasets."
+  },
+  "IssuerID_2025": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2025 plan",
+   "comments": "This field is only available for the 2025 and 2026 datasets."
+  },
+  "IssuerID_2026": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2026 plan",
+   "comments": "This field is only available for the 2026 and 2027 datasets."
+  },
+  "IssuerID_2027": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2027 plan",
+   "comments": "This field is only available for the 2027 dataset."
+  },
+  "MultistatePlan_2014": {
+   "definition": "Categorical indicator of whether the 2014 plan is a multi-state plan",
+   "comments": "This field is only available for the 2015 dataset."
+  },
+  "MultistatePlan_2015": {
+   "definition": "Categorical indicator of whether the 2015 plan is a multi-state plan",
+   "comments": "This field is only available for the 2015 and 2016 datasets."
+  },
+  "MultistatePlan_2016": {
+   "definition": "Categorical indicator of whether the 2016 plan is a multi-state plan",
+   "comments": "This field is only available for the 2016 and 2017 datasets."
+  },
+  "MultistatePlan_2017": {
+   "definition": "Categorical indicator of whether the 2017 plan is a multi-state plan",
+   "comments": "This field is only available for the 2017 and 2018 datasets."
+  },
+  "MultistatePlan_2018": {
+   "definition": "Categorical indicator of whether the 2018 plan is a multi-state plan",
+   "comments": "This field is only available for the 2018 and 2019 datasets."
+  },
+  "MultistatePlan_2019": {
+   "definition": "Categorical indicator of whether the 2019 plan is a multi-state plan",
+   "comments": "This field is only available for the 2019 and 2020 datasets."
+  },
+  "MultistatePlan_2020": {
+   "definition": "Categorical indicator of whether the 2020 plan is a multi-state plan",
+   "comments": "This field is only available for the 2020 and 2021 datasets."
+  },
+  "MultistatePlan_2021": {
+   "definition": "Categorical indicator of whether the 2021 plan is a multi-state plan",
+   "comments": "This field is only available for the 2021 and 2022 datasets."
+  },
+  "MultistatePlan_2022": {
+   "definition": "Categorical indicator of whether the 2022 plan is a multi-state plan",
+   "comments": "This field is only available for the 2022 and 2023 datasets."
+  },
+  "MultistatePlan_2023": {
+   "definition": "Categorical indicator of whether the 2023 plan is a multi-state plan",
+   "comments": "This field is only available for the 2023 and 2024 datasets."
+  },
+  "MultistatePlan_2024": {
+   "definition": "Categorical indicator of whether the 2024 plan is a multi-state plan",
+   "comments": "This field is only available for the 2024 and 2025 datasets."
+  },
+  "MultistatePlan_2025": {
+   "definition": "Categorical indicator of whether the 2025 plan is a multi-state plan",
+   "comments": "This field is only available for the 2025 and 2026 datasets."
+  },
+  "MultistatePlan_2026": {
+   "definition": "Categorical indicator of whether the 2026 plan is a multi-state plan",
+   "comments": "This field is only available for the 2026 and 2027 datasets."
+  },
+  "MultistatePlan_2027": {
+   "definition": "Categorical indicator of whether the 2027 plan is a multi-state plan",
+   "comments": "This field is only available for the 2027 dataset."
+  },
+  "MetalLevel_2014": {
+   "definition": "Metal level, or coverage category, of the 2014 plan based on its actuarial value",
+   "comments": "Values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2015 dataset."
+  },
+  "MetalLevel_2015": {
+   "definition": "Metal level, or coverage category, of the 2015 plan based on its actuarial value",
+   "comments": "Values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2015 and 2016 datasets."
+  },
+  "MetalLevel_2016": {
+   "definition": "Metal level, or coverage category, of the 2016 plan based on its actuarial value",
+   "comments": "Values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2016 and 2017 datasets."
+  },
+  "MetalLevel_2017": {
+   "definition": "Metal level, or coverage category, of the 2017 plan based on its actuarial value",
+   "comments": "Values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2017 and 2018 datasets."
+  },
+  "MetalLevel_2018": {
+   "definition": "Metal level, or coverage category, of the 2018 plan based on its actuarial value",
+   "comments": "Values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2018 and 2019 datasets."
+  },
+  "MetalLevel_2019": {
+   "definition": "Metal level, or coverage category, of the 2019 plan based on its actuarial value",
+   "comments": "Values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2019 and 2020 datasets."
+  },
+  "MetalLevel_2020": {
+   "definition": "Metal level, or coverage category, of the 2020 plan based on its actuarial value",
+   "comments": "Values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2020 and 2021 datasets."
+  },
+  "MetalLevel_2021": {
+   "definition": "Metal level, or coverage category, of the 2021 plan based on its actuarial value",
+   "comments": "Values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2021 and 2022 datasets."
+  },
+  "MetalLevel_2022": {
+   "definition": "Metal level, or coverage category, of the 2022 plan based on its actuarial value",
+   "comments": "Values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2022 and 2023 datasets."
+  },
+  "MetalLevel_2023": {
+   "definition": "Metal level, or coverage category, of the 2023 plan based on its actuarial value",
+   "comments": "Values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2023 and 2024 datasets."
+  },
+  "MetalLevel_2024": {
+   "definition": "Metal level, or coverage category, of the 2024 plan based on its actuarial value",
+   "comments": "Values of High and Low are only applicable for dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2024 and 2025 datasets."
+  },
+  "MetalLevel_2025": {
+   "definition": "Metal level, or coverage category, of the 2025 plan based on its actuarial value",
+   "comments": "Values of High and Low are only applicable for dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2025 and 2026 datasets."
+  },
+  "MetalLevel_2026": {
+   "definition": "Metal level, or coverage category, of the 2026 plan based on its actuarial value",
+   "comments": "Values of High and Low are only applicable for dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2026 and 2027 datasets."
+  },
+  "MetalLevel_2027": {
+   "definition": "Metal level, or coverage category, of the 2027 plan based on its actuarial value",
+   "comments": "Values of High and Low are only applicable for dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2027 dataset."
+  },
+  "ChildAdultOnly_2014": {
+   "definition": "The types of child enrollment options for the 2014 plan",
+   "comments": "A value of 0 means the 2014 plan allows adult-only and child-only enrollment; a value of 1 means the 2014 plan allows only child-only enrollment; a value of 2 means the 2014 plan does not allow child-only enrollment. This field is only available for the 2015 dataset."
+  },
+  "ChildAdultOnly_2015": {
+   "definition": "The types of child enrollment options for the 2015 plan",
+   "comments": "A value of 0 means the 2015 plan allows adult-only and child-only enrollment; a value of 1 means the 2015 plan allows only child-only enrollment; a value of 2 means the 2015 plan does not allow child-only enrollment. This field is only available for the 2015 and 2016 datasets."
+  },
+  "ChildAdultOnly_2016": {
+   "definition": "The types of child enrollment options for the 2016 plan",
+   "comments": "A value of 0 means the 2016 plan allows adult-only and child-only enrollment; a value of 1 means the 2016 plan allows only child-only enrollment; a value of 2 means the 2016 plan does not allow child-only enrollment. This field is only available for the 2016 and 2017 datasets."
+  },
+  "ChildAdultOnly_2017": {
+   "definition": "The types of child enrollment options for the 2017 plan",
+   "comments": "A value of 0 means the 2017 plan allows adult-only and child-only enrollment; a value of 1 means the 2017 plan allows only child-only enrollment; a value of 2 means the 2017 plan does not allow child-only enrollment. This field is only available for the 2017 and 2018 datasets."
+  },
+  "ChildAdultOnly_2018": {
+   "definition": "The types of child enrollment options for the 2018 plan",
+   "comments": "A value of 0 means the 2018 plan allows adult-only and child-only enrollment; a value of 1 means the 2018 plan allows only child-only enrollment; a value of 2 means the 2018 plan does not allow child-only enrollment. This field is only available for the 2018 and 2019 datasets."
+  },
+  "ChildAdultOnly_2019": {
+   "definition": "The types of child enrollment options for the 2019 plan",
+   "comments": "A value of 0 means the 2019 plan allows adult-only and child-only enrollment; a value of 1 means the 2019 plan allows only child-only enrollment; a value of 2 means the 2019 plan does not allow child-only enrollment. This field is only available for the 2019 and 2020 datasets."
+  },
+  "ChildAdultOnly_2020": {
+   "definition": "The types of child enrollment options for the 2020 plan",
+   "comments": "A value of 0 means the 2020 plan allows adult-only and child-only enrollment; a value of 1 means the 2020 plan allows only child-only enrollment; a value of 2 means the 2020 plan does not allow child-only enrollment. This field is only available for the 2020 and 2021 datasets."
+  },
+  "ChildAdultOnly_2021": {
+   "definition": "The types of child enrollment options for the 2021 plan",
+   "comments": "A value of 0 means the 2021 plan allows adult-only and child-only enrollment; a value of 1 means the 2021 plan allows only child-only enrollment; a value of 2 means the 2021 plan does not allow child-only enrollment. This field is only available for the 2021 and 2022 datasets."
+  },
+  "ChildAdultOnly_2022": {
+   "definition": "The types of child enrollment options for the 2022 plan",
+   "comments": "A value of 0 means the 2022 plan allows adult-only and child-only enrollment; a value of 1 means the 2022 plan allows only child-only enrollment; a value of 2 means the 2022 plan does not allow child-only enrollment. This field is only available for the 2022 and 2023 datasets."
+  },
+  "ChildAdultOnly_2023": {
+   "definition": "The types of child enrollment options for the 2023 plan",
+   "comments": "A value of 0 means the 2023 plan allows adult-only and child-only enrollment; a value of 1 means the 2023 plan allows only child-only enrollment; a value of 2 means the 2023 plan does not allow child-only enrollment. This field is only available for the 2023 and 2024 datasets."
+  },
+  "ChildAdultOnly_2024": {
+   "definition": "The types of child enrollment options for the 2024 plan",
+   "comments": "A value of 0 means the 2024 plan allows adult-only and child-only enrollment; a value of 1 means the 2024 plan allows only child-only enrollment; a value of 2 means the 2024 plan does not allow child-only enrollment. This field is only available for the 2024 and 2025 datasets."
+  },
+  "ChildAdultOnly_2025": {
+   "definition": "The types of child enrollment options for the 2025 plan",
+   "comments": "A value of 0 means the 2025 plan allows adult-only and child-only enrollment; a value of 1 means the 2025 plan allows only child-only enrollment; a value of 2 means the 2025 plan does not allow child-only enrollment. This field is only available for the 2025 and 2026 datasets."
+  },
+  "ChildAdultOnly_2026": {
+   "definition": "The types of child enrollment options for the 2026 plan",
+   "comments": "A value of 0 means the 2026 plan allows adult-only and child-only enrollment; a value of 1 means the 2026 plan allows only child-only enrollment; a value of 2 means the 2026 plan does not allow child-only enrollment. This field is only available for the 2026 and 2027 datasets."
+  },
+  "ChildAdultOnly_2027": {
+   "definition": "The types of child enrollment options for the 2027 plan",
+   "comments": "A value of 0 means the 2027 plan allows adult-only and child-only enrollment; a value of 1 means the 2027 plan allows only child-only enrollment; a value of 2 means the 2027 plan does not allow child-only enrollment. This field is only available for the 2027 dataset."
+  },
+  "FIPSCode": {
+   "definition": "Federal Information Processing Standards (FIPS) code assigned to the county within a state that is included in the plan\u2019s service area",
+   "comments": "N/A"
+  },
+  "ZipCode": {
+   "definition": "Five-digit zip code within the partial-county region included in the plan\u2019s service area",
+   "comments": "A value of \u201c00000\u201d means the issuer did not split the county into zip codes when submitting the Plan Crosswalk Template (i.e., the entire county is covered by the plan)"
+  },
+  "CrosswalkLevel": {
+   "definition": "Categorical indicator of the crosswalk level",
+   "comments": "A value of 0 equals Crosswalking to the same Plan ID; a value of 1 equals Crosswalking at the Plan ID level; a value of 2 equals Crosswalking at the Plan ID and county coverage level; a value of 3 equals Crosswalking at the zip-code level for one or more counties. For the 2015 dataset: a value of 4 equals Discontinue 2014 plan with no cross walk (no re-enrollment option in 2015); a value of 5 equals 2014 Plan withdrawn prior to certification. For the 2016 dataset: a value of 4 equals Discontinue 2015 plan with no cross walk (no re-enrollment option in 2016); a value of 5 equals 2015 Plan withdrawn prior to certification. For the 2017 dataset: a value of 4 equals Discontinue 2016 plan with no cross walk (no re-enrollment option in 2017); a value of 5 equals 2016 Plan withdrawn prior to certification. For the 2018 dataset: a value of 4 equals Discontinue 2017 plan with no cross walk (no re-enrollment option in 2018); a value of 5 equals 2017 Plan withdrawn prior to certification. For the 2019 dataset: a value of 4 equals Discontinue 2018 plan with no cross walk (no re-enrollment option in 2019); a value of 5 equals 2018 Plan withdrawn prior to certification. For the 2020 dataset: a value of 4 equals Discontinue 2019 plan with no cross walk (no re-enrollment option in 2020); a value of 5 equals 2019 Plan withdrawn prior to certification. For the 2021 dataset: a value of 4 equals Discontinue 2020 plan with no cross walk (no re-enrollment option in 2021); a value of 5 equals 2020 Plan withdrawn prior to certification. For the 2022 dataset: a value of 4 equals Discontinue 2021 plan with no cross walk (no re-enrollment option in 2022); a value of 5 equals 2021 Plan withdrawn prior to certification. For the 2023 dataset: a value of 4 equals Discontinue 2022 plan with no cross walk (no re-enrollment option in 2023); a value of 5 equals 2022 Plan withdrawn prior to certification. For the 2024 dataset: a value of 4 equals Discontinue 2023 plan with no cross walk (no re-enrollment option in 2024); a value of 5 equals 2023 Plan withdrawn prior to certification. For the 2025 dataset: a value of 4 equals Discontinue 2024 plan with no cross walk (no re-enrollment option in 2025); a value of 5 equals 2024 Plan withdrawn prior to certification. For the 2026 dataset: a value of 4 equals Discontinue 2025 plan with no cross walk (no re-enrollment option in 2026); a value of 5 equals 2025 Plan withdrawn prior to certification. For the 2027 dataset: a value of 4 equals Discontinue 2026 plan with no cross walk (no re-enrollment option in 2027); a value of 5 equals 2026 Plan withdrawn prior to certification."
+  },
+  "ReasonForCrosswalk": {
+   "definition": "Categorical indicator of the reason for the crosswalk",
+   "comments": "For the 2015 dataset: a value of 0 equals Renewing the same product/plan combination using the same 2014 Plan ID; a value of 1 equals Renewing the same product/plan combination using a different 2015 Plan ID; a value of 2 equals Renewing product or renewal in a different plan within the product; a value of 3 equals Continuing product with no plan available in the particular service area under that product and enrollment in a different product; a value of 4 equals Continuing product with no plan available in the particular service area under that product and no enrollment option; a value of 5 equals Discontinuing product and no enrollment option; a value of 6 equals Discontinuing product and enrollment into a different product; a value of 7 equals Continuing product; no silver plan available in the particular service area under that product, enrollment in a silver plan under a different product. For the 2016 dataset: a value of 0 equals Renewing the same product/plan combination using the same 2015 Plan ID; a value of 1 equals Renewing the same product/plan combination using a different 2016 Plan ID; a value of 2 equals Renewing product or renewal in a different plan within the product; a value of 3 equals Continuing product with no plan available in the particular service area under that product and enrollment in a different product; a value of 4 equals Continuing product with no plan available in the particular service area under that product and no enrollment option; a value of 5 equals Discontinuing product and no enrollment option; a value of 6 equals Discontinuing product and enrollment into a different product; a value of 7 equals Continuing product; no silver plan available in the particular service area under that product, enrollment in a silver plan under a different product. For the 2017 dataset: a value of 0 equals Renewing the same product/plan combination using the same 2016 Plan ID; a value of 1 equals Renewing the same product/plan combination using a different 2017 Plan ID; a value of 2 equals Renewing product or renewal in a different plan within the product; a value of 3 equals Continuing product with no plan available in the particular service area under that product and enrollment in a different product; a value of 4 equals Continuing product with no plan available in the particular service area under that product and no enrollment option; a value of 5 equals Discontinuing product and no enrollment option; a value of 6 equals Discontinuing product and enrollment into a different product; a value of 7 equals Continuing product; no silver plan available in the particular service area under that product, enrollment in a silver plan under a different product; a value of 8 equals Crosswalk to a different issuer; crosswalk determined by CMS and not existing issuer. For the 2018 dataset: a value of 0 equals Renewing the same product/plan combination using the same 2017 Plan ID; a value of 1 equals Renewing the same product/plan combination using a different 2018 Plan ID; a value of 2 equals Renewing product or renewal in a different plan within the product; a value of 3 equals Continuing product with no plan available in the particular service area under that product and enrollment in a different product; a value of 4 equals Continuing product with no plan available in the particular service area under that product and no enrollment option; a value of 5 equals Discontinuing product and no enrollment option; a value of 6 equals Discontinuing product and enrollment into a different product; a value of 7 equals Continuing product; no silver plan available in the particular service area under that product, enrollment in a silver plan under a different product; a value of 8 equals Crosswalk to a different issuer; crosswalk determined by CMS and not existing issuer. For the 2019 dataset: a value of 0 equals Renewing the same product/plan combination using the same 2018 Plan ID; a value of 1 equals Renewing the same product/plan combination using a different 2019 Plan ID; a value of 2 equals Renewing product or renewal in a different plan within the product; a value of 3 equals Continuing product with no plan available in the particular service area under that product and enrollment in a different product; a value of 4 equals Continuing product with no plan available in the particular service area under that product and no enrollment option; a value of 5 equals Discontinuing product and no enrollment option; a value of 6 equals Discontinuing product and enrollment into a different product; a value of 7 equals Continuing product; no silver plan available in the particular service area under that product, enrollment in a silver plan under a different product; a value of 8 equals Crosswalk to a different issuer; crosswalk determined by CMS and not existing issuer; a value of 10 equals Discontinuing plan; plan discontinued in a bare county. For the 2020 dataset: a value of 0 equals Renewing the same product/plan combination using the same 2019 Plan ID; a value of 1 equals Renewing the same product/plan combination using a different 2020 Plan ID; a value of 2 equals Renewing product or renewal in a different plan within the product; a value of 3 equals Continuing product with no plan available in the particular service area under that product and enrollment in a different product; a value of 4 equals Continuing product with no plan available in the particular service area under that product and no enrollment option; a value of 5 equals Discontinuing product and no enrollment option; a value of 6 equals Discontinuing product and enrollment into a different product; a value of 7 equals Continuing product; no silver plan available in the particular service area under that product, enrollment in a silver plan under a different product; a value of 8 equals Crosswalk to a different issuer; crosswalk determined by CMS and not existing issuer; a value of 10 equals Discontinuing plan; plan discontinued in a bare county. For the 2021 dataset: a value of 0 equals Renewing the same product/plan combination using the same 2020 Plan ID; a value of 1 equals Renewing the same product/plan combination using a different 2021 Plan ID; a value of 2 equals Renewing product or renewal in a different plan within the product; a value of 3 equals Continuing product with no plan available in the particular service area under that product and enrollment in a different product; a value of 4 equals Continuing product with no plan available in the particular service area under that product and no enrollment option; a value of 5 equals Discontinuing product and no enrollment option; a value of 6 equals Discontinuing product and enrollment into a different product; a value of 7 equals Continuing product; no silver plan available in the particular service area under that product, enrollment in a silver plan under a different product; a value of 8 equals Crosswalk to a different issuer; crosswalk determined by CMS and not existing issuer; a value of 10 equals Discontinuing plan; plan discontinued in a bare county. For the 2022 dataset: a value of 0 equals Renewing the same product/plan combination using the same 2021 Plan ID; a value of 1 equals Renewing the same product/plan combination using a different 2022 Plan ID; a value of 2 equals Renewing product or renewal in a different plan within the product; a value of 3 equals Continuing product with no plan available in the particular service area under that product and enrollment in a different product; a value of 4 equals Continuing product with no plan available in the particular service area under that product and no enrollment option; a value of 5 equals Discontinuing product and no enrollment option; a value of 6 equals Discontinuing product and enrollment into a different product; a value of 7 equals Continuing product; no silver plan available in the particular service area under that product, enrollment in a silver plan under a different product; a value of 8 equals Crosswalk to a different issuer; crosswalk determined by CMS and not existing issuer; a value of 10 equals Discontinuing plan; plan discontinued in a bare county. For the 2023 dataset: a value of 0 equals Renewing the same product/plan combination using the same 2022 Plan ID; a value of 1 equals Renewing the same product/plan combination using a different 2023 Plan ID; a value of 2 equals Renewing product or renewal in a different plan within the product; a value of 3 equals Continuing product with no plan available in the particular service area under that product and enrollment in a different product; a value of 4 equals Continuing product with no plan available in the particular service area under that product and no enrollment option; a value of 5 equals Discontinuing product and no enrollment option; a value of 6 equals Discontinuing product and enrollment into a different product; a value of 7 equals Continuing product; no silver plan available in the particular service area under that product, enrollment in a silver plan under a different product; a value of 8 equals Crosswalk to a different issuer; crosswalk determined by CMS and not existing issuer; a value of 10 equals Discontinuing plan; plan discontinued in a bare county. For the 2024 dataset: a value of 0 equals Renewing the same product/plan combination using the same 2023 Plan ID; a value of 1 equals Renewing the same product/plan combination using a different 2024 Plan ID; a value of 2 equals Renewing product or renewal in a different plan within the product; a value of 3 equals Continuing product with no plan available in the particular service area under that product and enrollment in a different product; a value of 4 equals Continuing product with no plan available in the particular service area under that product and no enrollment option; a value of 5 equals Discontinuing product and no enrollment option; a value of 6 equals Discontinuing product and enrollment into a different product; a value of 7 equals Continuing product; no silver plan available in the particular service area under that product, enrollment in a silver plan under a different product; a value of 8 equals Crosswalk to a different issuer; crosswalk determined by CMS and not existing issuer; a value of 10 equals Discontinuing plan; plan discontinued in a bare county. For the 2025 dataset: a value of 0 equals Renewing the same product/plan combination using the same 2024 Plan ID; a value of 1 equals Renewing the same product/plan combination using a different 2025 Plan ID; a value of 2 equals Renewing product or renewal in a different plan within the product; a value of 3 equals Continuing product with no plan available in the particular service area under that product and enrollment in a different product; a value of 4 equals Continuing product with no plan available in the particular service area under that product and no enrollment option; a value of 5 equals Discontinuing product and no enrollment option; a value of 6 equals Discontinuing product and enrollment into a different product; a value of 7 equals Continuing product; no silver plan available in the particular service area under that product, enrollment in a silver plan under a different product; a value of 8 equals Crosswalk to a different issuer; crosswalk determined by CMS and not existing issuer; a value of 10 equals Discontinuing plan; plan discontinued in a bare county. For the 2026 dataset: a value of 0 equals Renewing the same product/plan combination using the same 2025 Plan ID; a value of 1 equals Renewing the same product/plan combination using a different 2026 Plan ID; a value of 2 equals Renewing product or renewal in a different plan within the product; a value of 3 equals Continuing product with no plan available in the particular service area under that product and enrollment in a different product; a value of 4 equals Continuing product with no plan available in the particular service area under that product and no enrollment option; a value of 5 equals Discontinuing product and no enrollment option; a value of 6 equals Discontinuing product and enrollment into a different product; a value of 7 equals Continuing product; no silver plan available in the particular service area under that product, enrollment in a silver plan under a different product; a value of 8 equals Crosswalk to a different issuer; crosswalk determined by CMS and not existing issuer; a value of 10 equals Discontinuing plan; plan discontinued in a bare county. For the 2027 dataset: a value of 0 equals Renewing the same product/plan combination using the same 2026 Plan ID; a value of 1 equals Renewing the same product/plan combination using a different 2027 Plan ID; a value of 2 equals Renewing product or renewal in a different plan within the product; a value of 3 equals Continuing product with no plan available in the particular service area under that product and enrollment in a different product; a value of 4 equals Continuing product with no plan available in the particular service area under that product and no enrollment option; a value of 5 equals Discontinuing product and no enrollment option; a value of 6 equals Discontinuing product and enrollment into a different product; a value of 7 equals Continuing product; no silver plan available in the particular service area under that product, enrollment in a silver plan under a different product; a value of 8 equals Crosswalk to a different issuer; crosswalk determined by CMS and not existing issuer; a value of 10 equals Discontinuing plan; plan discontinued in a bare county."
+  },
+  "AgeOffPlanID_2015": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the plan available to enrollees who will age-off (i.e., no longer meet the criteria for continued eligibility) the 2014 plan prior to January 1, 2015",
+   "comments": "A value of \u201c00000XX0000000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2015 dataset."
+  },
+  "AgeOffPlanID_2016": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the plan available to enrollees who will age-off (i.e., no longer meet the criteria for continued eligibility) the 2015 plan prior to January 1, 2016",
+   "comments": "A value of \u201c00000XX0000000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2016 dataset."
+  },
+  "AgeOffPlanID_2017": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the plan available to enrollees who will age-off (i.e., no longer meet the criteria for continued eligibility) the 2016 plan prior to January 1, 2017",
+   "comments": "A value of \u201c00000XX0000000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2017 dataset."
+  },
+  "AgeOffPlanID_2018": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the plan available to enrollees who will age-off (i.e., no longer meet the criteria for continued eligibility) the 2017 plan prior to January 1, 2018",
+   "comments": "A value of \u201c00000XX0000000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2018 dataset."
+  },
+  "AgeOffPlanID_2019": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the plan available to enrollees who will age-off (i.e., no longer meet the criteria for continued eligibility) the 2018 plan prior to January 1, 2019",
+   "comments": "A value of \u201c00000XX0000000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2019 dataset."
+  },
+  "AgeOffPlanID_2020": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the plan available to enrollees who will age-off (i.e., no longer meet the criteria for continued eligibility) the 2019 plan prior to January 1, 2020",
+   "comments": "A value of \u201c00000XX0000000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2020 dataset."
+  },
+  "AgeOffPlanID_2021": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the plan available to enrollees who will age-off (i.e., no longer meet the criteria for continued eligibility) the 2020 plan prior to January 1, 2021",
+   "comments": "A value of \u201c00000XX0000000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2021 dataset."
+  },
+  "AgeOffPlanID_2022": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the plan available to enrollees who will age-off (i.e., no longer meet the criteria for continued eligibility) the 2022 plan prior to January 1, 2022",
+   "comments": "A value of \u201c00000XX0000000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2022 dataset."
+  },
+  "AgeOffPlanID_2023": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the plan available to enrollees who will age-off (i.e., no longer meet the criteria for continued eligibility) the 2023 plan prior to January 1, 2023",
+   "comments": "A value of \u201c00000XX0000000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2023 dataset."
+  },
+  "AgeOffPlanID_2024": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the plan available to enrollees who will age-off (i.e., no longer meet the criteria for continued eligibility) the 2024 plan prior to January 1, 2024",
+   "comments": "A value of \u201c00000XX0000000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2024 dataset."
+  },
+  "AgeOffPlanID_2025": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the plan available to enrollees who will age-off (i.e., no longer meet the criteria for continued eligibility) the 2025 plan prior to January 1, 2025",
+   "comments": "A value of \u201c00000XX0000000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2025 dataset."
+  },
+  "AgeOffPlanID_2026": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the plan available to enrollees who will age-off (i.e., no longer meet the criteria for continued eligibility) the 2026 plan prior to January 1, 2026",
+   "comments": "A value of \u201c00000XX0000000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2026 dataset."
+  },
+  "AgeOffPlanID_2027": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the plan available to enrollees who will age-off (i.e., no longer meet the criteria for continued eligibility) the 2027 plan prior to January 1, 2027",
+   "comments": "A value of \u201c00000XX0000000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2027 dataset."
+  },
+  "IssuerID_AgeOff2015": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2015 plan identified in the AgeOffPlanID_2015 field",
+   "comments": "A value of \u201c00000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2015 dataset."
+  },
+  "IssuerID_AgeOff2016": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2016 plan identified in the AgeOffPlanID_2016 field",
+   "comments": "A value of \u201c00000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2016 dataset."
+  },
+  "IssuerID_AgeOff2017": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2017 plan identified in the AgeOffPlanID_2017 field",
+   "comments": "A value of \u201c00000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2017 dataset."
+  },
+  "IssuerID_AgeOff2018": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2018 plan identified in the AgeOffPlanID_2018 field",
+   "comments": "A value of \u201c00000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2018 dataset."
+  },
+  "IssuerID_AgeOff2019": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2019 plan identified in the AgeOffPlanID_2019 field",
+   "comments": "A value of \u201c00000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2019 dataset."
+  },
+  "IssuerID_AgeOff2020": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2020 plan identified in the AgeOffPlanID_2020 field",
+   "comments": "A value of \u201c00000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2020 dataset."
+  },
+  "IssuerID_AgeOff2021": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2021 plan identified in the AgeOffPlanID_2021 field",
+   "comments": "A value of \u201c00000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2021 dataset."
+  },
+  "IssuerID_AgeOff2022": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2022 plan identified in the AgeOffPlanID_2022 field",
+   "comments": "A value of \u201c00000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2022 dataset."
+  },
+  "IssuerID_AgeOff2023": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2023 plan identified in the AgeOffPlanID_2023 field",
+   "comments": "A value of \u201c00000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2023 dataset."
+  },
+  "IssuerID_AgeOff2024": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2024 plan identified in the AgeOffPlanID_2024 field",
+   "comments": "A value of \u201c00000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2024 dataset."
+  },
+  "IssuerID_AgeOff2025": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2025 plan identified in the AgeOffPlanID_2025 field",
+   "comments": "A value of \u201c00000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2025 dataset."
+  },
+  "IssuerID_AgeOff2026": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2026 plan identified in the AgeOffPlanID_2026 field",
+   "comments": "A value of \u201c00000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2026 dataset."
+  },
+  "IssuerID_AgeOff2027": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2027 plan identified in the AgeOffPlanID_2027 field",
+   "comments": "A value of \u201c00000\u201d indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2027 dataset."
+  },
+  "MultistatePlan_AgeOff2015": {
+   "definition": "Categorical indicator of whether the 2015 age off plan is a multi-state plan",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2015 dataset."
+  },
+  "MultistatePlan_AgeOff2016": {
+   "definition": "Categorical indicator of whether the 2016 age off plan is a multi-state plan",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2016 dataset."
+  },
+  "MultistatePlan_AgeOff2017": {
+   "definition": "Categorical indicator of whether the 2017 age off plan is a multi-state plan",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2017 dataset."
+  },
+  "MultistatePlan_AgeOff2018": {
+   "definition": "Categorical indicator of whether the 2018 age off plan is a multi-state plan",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2018 dataset."
+  },
+  "MultistatePlan_AgeOff2019": {
+   "definition": "Categorical indicator of whether the 2019 age off plan is a multi-state plan",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2019 dataset."
+  },
+  "MultistatePlan_AgeOff2020": {
+   "definition": "Categorical indicator of whether the 2020 age off plan is a multi-state plan",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2020 dataset."
+  },
+  "MultistatePlan_AgeOff2021": {
+   "definition": "Categorical indicator of whether the 2021 age off plan is a multi-state plan",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2021 dataset."
+  },
+  "MultistatePlan_AgeOff2022": {
+   "definition": "Categorical indicator of whether the 2022 age off plan is a multi-state plan",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2022 dataset."
+  },
+  "MultistatePlan_AgeOff2023": {
+   "definition": "Categorical indicator of whether the 2023 age off plan is a multi-state plan",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2023 dataset."
+  },
+  "MultistatePlan_AgeOff2024": {
+   "definition": "Categorical indicator of whether the 2024 age off plan is a multi-state plan",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2024 dataset."
+  },
+  "MultistatePlan_AgeOff2025": {
+   "definition": "Categorical indicator of whether the 2025 age off plan is a multi-state plan",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2025 dataset."
+  },
+  "MultistatePlan_AgeOff2026": {
+   "definition": "Categorical indicator of whether the 2026 age off plan is a multi-state plan",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2026 dataset."
+  },
+  "MultistatePlan_AgeOff2027": {
+   "definition": "Categorical indicator of whether the 2027 age off plan is a multi-state plan",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2027 dataset."
+  },
+  "MetalLevel_AgeOff2015": {
+   "definition": "Metal level of the 2015 age off plan based on its actuarial value",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID; values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2015 dataset."
+  },
+  "MetalLevel_AgeOff2016": {
+   "definition": "Metal level of the 2016 age off plan based on its actuarial value",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID; values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2016 dataset."
+  },
+  "MetalLevel_AgeOff2017": {
+   "definition": "Metal level of the 2017 age off plan based on its actuarial value",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID; values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2017 dataset."
+  },
+  "MetalLevel_AgeOff2018": {
+   "definition": "Metal level of the 2018 age off plan based on its actuarial value",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID; values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2018 dataset."
+  },
+  "MetalLevel_AgeOff2019": {
+   "definition": "Metal level of the 2019 age off plan based on its actuarial value",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID; values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2019 dataset."
+  },
+  "MetalLevel_AgeOff2020": {
+   "definition": "Metal level of the 2020 age off plan based on its actuarial value",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID; values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2020 dataset."
+  },
+  "MetalLevel_AgeOff2021": {
+   "definition": "Metal level of the 2021 age off plan based on its actuarial value",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID; values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2021 dataset."
+  },
+  "MetalLevel_AgeOff2022": {
+   "definition": "Metal level of the 2022 age off plan based on its actuarial value",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID; values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2022 dataset."
+  },
+  "MetalLevel_AgeOff2023": {
+   "definition": "Metal level of the 2023 age off plan based on its actuarial value",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID; values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2023 dataset."
+  },
+  "MetalLevel_AgeOff2024": {
+   "definition": "Metal level of the 2024 age off plan based on its actuarial value",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID; values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2024 dataset."
+  },
+  "MetalLevel_AgeOff2025": {
+   "definition": "Metal level of the 2025 age off plan based on its actuarial value",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID; values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2025 dataset."
+  },
+  "MetalLevel_AgeOff2026": {
+   "definition": "Metal level of the 2026 age off plan based on its actuarial value",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID; values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2026 dataset."
+  },
+  "MetalLevel_AgeOff2027": {
+   "definition": "Metal level of the 2027 age off plan based on its actuarial value",
+   "comments": "A value of X indicates that the issuer did not provide an age-off plan ID; values of High and Low are only applicable to dental plans; values other than High and Low are only applicable to medical plans. This field is only available for the 2027 dataset."
+  },
+  "ChildAdultOnly_AgeOff2015": {
+   "definition": "The types of child enrollment options for the 2015 age off plan",
+   "comments": "A value of 0 means the 2015 age off plan allows adult-only and child- only enrollment; a value of 1 means the 2015 age off plan allows only child-only enrollment; a value of 2 means the 2015 age off plan does not allow child-only enrollment; a value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2015 dataset."
+  },
+  "ChildAdultOnly_AgeOff2016": {
+   "definition": "The types of child enrollment options for the 2016 age off plan",
+   "comments": "A value of 0 means the 2016 age off plan allows adult-only and child- only enrollment; a value of 1 means the 2016 age off plan allows only child-only enrollment; a value of 2 means the 2016 age off plan does not allow child-only enrollment; a value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2016 dataset."
+  },
+  "ChildAdultOnly_AgeOff2017": {
+   "definition": "The types of child enrollment options for the 2017 age off plan",
+   "comments": "A value of 0 means the 2017 age off plan allows adult-only and child- only enrollment; a value of 1 means the 2017 age off plan allows only child-only enrollment; a value of 2 means the 2017 age off plan does not allow child-only enrollment; a value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2017 dataset."
+  },
+  "ChildAdultOnly_AgeOff2018": {
+   "definition": "The types of child enrollment options for the 2018 age off plan",
+   "comments": "A value of 0 means the 2018 age off plan allows adult-only and child- only enrollment; a value of 1 means the 2018 age off plan allows only child-only enrollment; a value of 2 means the 2018 age off plan does not allow child-only enrollment; a value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2018 dataset."
+  },
+  "ChildAdultOnly_AgeOff2019": {
+   "definition": "The types of child enrollment options for the 2019 age off plan",
+   "comments": "A value of 0 means the 2019 age off plan allows adult-only and child- only enrollment; a value of 1 means the 2019 age off plan allows only child-only enrollment; a value of 2 means the 2019 age off plan does not allow child-only enrollment; a value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2019 dataset."
+  },
+  "ChildAdultOnly_AgeOff2020": {
+   "definition": "The types of child enrollment options for the 2020 age off plan",
+   "comments": "A value of 0 means the 2020 age off plan allows adult-only and child- only enrollment; a value of 1 means the 2020 age off plan allows only child-only enrollment; a value of 2 means the 2020 age off plan does not allow child-only enrollment; a value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2020 dataset."
+  },
+  "ChildAdultOnly_AgeOff2021": {
+   "definition": "The types of child enrollment options for the 2021 age off plan",
+   "comments": "A value of 0 means the 2021 age off plan allows adult-only and child- only enrollment; a value of 1 means the 2021 age off plan allows only child-only enrollment; a value of 2 means the 2021 age off plan does not allow child-only enrollment; a value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2021 dataset."
+  },
+  "ChildAdultOnly_AgeOff2022": {
+   "definition": "The types of child enrollment options for the 2022 age off plan",
+   "comments": "A value of 0 means the 2022 age off plan allows adult-only and child- only enrollment; a value of 1 means the 2022 age off plan allows only child-only enrollment; a value of 2 means the 2022 age off plan does not allow child-only enrollment; a value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2022 dataset."
+  },
+  "ChildAdultOnly_AgeOff2023": {
+   "definition": "The types of child enrollment options for the 2023 age off plan",
+   "comments": "A value of 0 means the 2023 age off plan allows adult-only and child- only enrollment; a value of 1 means the 2023 age off plan allows only child-only enrollment; a value of 2 means the 2023 age off plan does not allow child-only enrollment; a value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2023 dataset."
+  },
+  "ChildAdultOnly_AgeOff2024": {
+   "definition": "The types of child enrollment options for the 2024 age off plan",
+   "comments": "A value of 0 means the 2024 age off plan allows adult-only and child- only enrollment; a value of 1 means the 2024 age off plan allows only child-only enrollment; a value of 2 means the 2024 age off plan does not allow child-only enrollment; a value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2024 dataset."
+  },
+  "ChildAdultOnly_AgeOff2025": {
+   "definition": "The types of child enrollment options for the 2025 age off plan",
+   "comments": "A value of 0 means the 2025 age off plan allows adult-only and child- only enrollment; a value of 1 means the 2025 age off plan allows only child-only enrollment; a value of 2 means the 2025 age off plan does not allow child-only enrollment; a value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2025 dataset."
+  },
+  "ChildAdultOnly_AgeOff2026": {
+   "definition": "The types of child enrollment options for the 2026 age off plan",
+   "comments": "A value of 0 means the 2026 age off plan allows adult-only and child- only enrollment; a value of 1 means the 2026 age off plan allows only child-only enrollment; a value of 2 means the 2026 age off plan does not allow child-only enrollment; a value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2026 dataset."
+  },
+  "ChildAdultOnly_AgeOff2027": {
+   "definition": "The types of child enrollment options for the 2027 age off plan",
+   "comments": "A value of 0 means the 2027 age off plan allows adult-only and child- only enrollment; a value of 1 means the 2027 age off plan allows only child-only enrollment; a value of 2 means the 2027 age off plan does not allow child-only enrollment; a value of X indicates that the issuer did not provide an age-off plan ID. This field is only available for the 2027 dataset."
+  },
+  "ReasonForBronzeToSilverCrosswalk": {
+   "definition": "Categorical indicator of the reason for bronze to silver crosswalk",
+   "comments": "For the 2027 PUF, a value of X indicates that: a 2027 silver metal level plan is not available for enrollees in a 2026 bronze plan that would be crosswalked to a 2027 bronze plan, but who qualify for bronze to silver metal level re-enrollment; the 2026 plan is not a bronze plan; or the 2026 plan is a bronze plan but it would be crosswalked to a 2027 plan that is another metal level. A similar definition applies to this variable for datasets of previous plan years. This field is only available for the 2024 through 2027 datasets."
+  },
+  "SilverCSREligPlanID_2024": {
+   "definition": "Fourteen-character alpha-numeric code that identifies the 2024 silver level plan for enrollees in a 2023 bronze plan who qualify for bronze to silver metal level re-enrollment",
+   "comments": "A value of \u201c00000XX0000000\u201d indicates that: a 2024 silver metal level plan is not available for enrollees in a 2023 bronze plan who qualify for bronze to silver metal level re-enrollment; the 2023 plan is not a bronze plan; or the 2023 plan is a bronze plan but it would be crosswalked to a 2024 plan at another metal level. This field is only available for the 2024 dataset."
+  },
+  "SilverCSREligIssuerID_2025": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2025 Silver CSR Eligible Plan ID 2025",
+   "comments": "A value of \u201c00000\u201d indicates that: a 2025 silver metal level plan is not available for enrollees in a 2024 bronze plan who qualify for bronze to silver metal level re-enrollment; the 2024 plan is not a bronze plan; or the 2024 plan is not a bronze plan but it would be crosswalked to a 2025 plan at another metal level. This field is only available for the 2025 dataset."
+  },
+  "SilverCSREligIssuerID_2026": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2026 Silver CSR Eligible Plan ID 2026",
+   "comments": "A value of \u201c00000\u201d indicates that: a 2026 silver metal level plan is not available for enrollees in a 2025 bronze plan who qualify for bronze to silver metal level re-enrollment; the 2025 plan is not a bronze plan; or the 2025 plan is not a bronze plan but it would be crosswalked to a 2026 plan at another metal level. This field is only available for the 2026 dataset."
+  },
+  "SilverCSREligIssuerID_2027": {
+   "definition": "Five-digit numeric code that identifies the issuer organization in HIOS for the 2027 Silver CSR Eligible Plan ID 2027",
+   "comments": "A value of \u201c00000\u201d indicates that: a 2027 silver metal level plan is not available for enrollees in a 2026 bronze plan who qualify for bronze to silver metal level re-enrollment; the 2026 plan is not a bronze plan; or the 2026 plan is not a bronze plan but it would be crosswalked to a 2027 plan at another metal level. This field is only available for the 2027 dataset."
+  }
+ }
+}

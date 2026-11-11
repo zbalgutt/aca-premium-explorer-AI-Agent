@@ -1,0 +1,1115 @@
+{
+  "dataset": "aca",
+  "joins": [
+    "benefits.standard_component_id = plans.standard_component_id AND benefits.plan_year = plans.plan_year",
+    "rates.plan_id = plans.standard_component_id AND rates.plan_year = plans.plan_year",
+    "plans.service_area_id = service_area_counties.service_area_id AND plans.issuer_id = service_area_counties.issuer_id AND plans.plan_year = service_area_counties.plan_year",
+    "crosswalk.prior_plan_id = plans.standard_component_id AND crosswalk.plan_year - 1 = plans.plan_year (the old plan)",
+    "crosswalk.current_plan_id = plans.standard_component_id AND crosswalk.plan_year = plans.plan_year (the new plan)"
+  ],
+  "tables": [
+    {
+      "name": "rates",
+      "description": "Monthly premium for each plan, rating area, age band and tobacco status. The main table.",
+      "grain": "One row per plan_year x plan_id x rating_area_id x age x tobacco. Join to plans for metal level, issuer, deductible.",
+      "rows": 6770011,
+      "columns": [
+        {
+          "name": "plan_year",
+          "type": "INT64",
+          "enum_values": [
+            2025,
+            2026,
+            2027
+          ],
+          "description": "Plan year (2025, 2026 or 2027). Every table has it. Always filter on it."
+        },
+        {
+          "name": "state_code",
+          "type": "STRING",
+          "enum_values": [
+            "AK",
+            "AL",
+            "AR",
+            "AZ",
+            "DE",
+            "FL",
+            "HI",
+            "IA",
+            "IL",
+            "IN",
+            "KS",
+            "LA",
+            "MI",
+            "MO",
+            "MS",
+            "MT",
+            "NC",
+            "ND",
+            "NE",
+            "NH",
+            "OH",
+            "OK",
+            "OR",
+            "SC",
+            "SD",
+            "TN",
+            "TX",
+            "UT",
+            "WI",
+            "WV",
+            "WY"
+          ],
+          "description": "Two-character state abbreviation indicating the state where the plan is offered."
+        },
+        {
+          "name": "issuer_id",
+          "type": "STRING",
+          "description": "Five-digit numeric code that identifies the issuer organization in the Health Insurance Oversight System (HIOS)."
+        },
+        {
+          "name": "plan_id",
+          "type": "STRING",
+          "description": "14-character HIOS plan ID. Joins to plans.standard_component_id (plus plan_year)."
+        },
+        {
+          "name": "rating_area_id",
+          "type": "STRING",
+          "description": "Rating area within the state, like 'Rating Area 3'. Numbers restart in every state. Premiums vary by rating area, not county."
+        },
+        {
+          "name": "rating_area_num",
+          "type": "INT64",
+          "range": [
+            1,
+            67
+          ],
+          "description": "The number in rating_area_id, as an integer."
+        },
+        {
+          "name": "tobacco",
+          "type": "STRING",
+          "enum_values": [
+            "No Preference",
+            "Tobacco User/Non-Tobacco User"
+          ],
+          "description": "'No Preference' means one rate for everyone. 'Tobacco User/Non-Tobacco User' means the plan has separate smoker and non-smoker rates. NULL for family-tier rows."
+        },
+        {
+          "name": "age",
+          "type": "STRING",
+          "enum_values": [
+            "0-14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60",
+            "61",
+            "62",
+            "63",
+            "64 and over",
+            "Family Option"
+          ],
+          "description": "Age band exactly as CMS reports it: '0-14', '15' ... '63', '64 and over', or 'Family Option'. To match a person's age use age_min and age_max instead."
+        },
+        {
+          "name": "age_min",
+          "type": "INT64",
+          "enum_values": [
+            0,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64
+          ],
+          "description": "Lowest age in the band. '0-14' is 0, '64 and over' is 64. NULL for 'Family Option'."
+        },
+        {
+          "name": "age_max",
+          "type": "INT64",
+          "enum_values": [
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            120
+          ],
+          "description": "Highest age in the band. '0-14' is 14, '64 and over' is 120. NULL for 'Family Option'. Match an age with age_min <= X AND X <= age_max."
+        },
+        {
+          "name": "individual_rate",
+          "type": "FLOAT64",
+          "range": [
+            0.01,
+            9587.49
+          ],
+          "description": "Monthly premium in dollars for one person, before subsidies. NULL when the plan has no price for that row (CMS placeholders 0 and 9999 were removed). It is the non-tobacco rate when the plan prices tobacco separately, and the rate for everyone when tobacco is 'No Preference'."
+        },
+        {
+          "name": "individual_tobacco_rate",
+          "type": "FLOAT64",
+          "range": [
+            130.3,
+            9998.76
+          ],
+          "description": "Monthly premium in dollars for a tobacco user. Only filled when tobacco = 'Tobacco User/Non-Tobacco User', otherwise NULL."
+        },
+        {
+          "name": "couple",
+          "type": "FLOAT64",
+          "range": [
+            20.67,
+            172.96
+          ],
+          "description": "Insurance rate applied to a primary subscriber and secondary subscriber in a rating area for a family-tier rated plan when age equals Family Option."
+        },
+        {
+          "name": "primary_subscriber_and_one_dependent",
+          "type": "FLOAT64",
+          "range": [
+            26.24,
+            199.56
+          ],
+          "description": "Insurance rate applied to a primary subscriber and one dependent in a rating area for a family-tier rated plan when age equals Family Option."
+        },
+        {
+          "name": "primary_subscriber_and_two_dependents",
+          "type": "FLOAT64",
+          "range": [
+            26.24,
+            199.56
+          ],
+          "description": "Insurance rate applied to a primary subscriber and two dependents in a rating area for a family-tier rated plan when age equals Family Option."
+        },
+        {
+          "name": "primary_subscriber_and_three_or_more_dependents",
+          "type": "FLOAT64",
+          "range": [
+            26.24,
+            241.0
+          ],
+          "description": "Insurance rate applied to a primary subscriber and three or more dependents in a rating area for a family-tier rated plan when age equals Family Option."
+        },
+        {
+          "name": "couple_and_one_dependent",
+          "type": "FLOAT64",
+          "range": [
+            39.42,
+            297.68
+          ],
+          "description": "Insurance rate applied to a primary subscriber, secondary subscriber, and one dependent in a rating area for a family-tier rated plan when age equals Family Option."
+        },
+        {
+          "name": "couple_and_two_dependents",
+          "type": "FLOAT64",
+          "range": [
+            39.42,
+            297.68
+          ],
+          "description": "Insurance rate applied to a primary subscriber, secondary subscriber, and two dependents in a rating area for a family-tier rated plan when age equals Family Option."
+        },
+        {
+          "name": "couple_and_three_or_more_dependents",
+          "type": "FLOAT64",
+          "range": [
+            39.42,
+            297.68
+          ],
+          "description": "Insurance rate applied to a primary subscriber, secondary subscriber, and three or more dependents in a rating area for a family-tier rated plan when age equals Family Option."
+        },
+        {
+          "name": "rate_effective_date",
+          "type": "DATE",
+          "description": "Date that the insurance plan rate is effective."
+        },
+        {
+          "name": "rate_expiration_date",
+          "type": "DATE",
+          "description": "Date that the insurance plan rate expires."
+        }
+      ]
+    },
+    {
+      "name": "plans",
+      "description": "One row per plan: issuer, metal level, plan type, deductible, out-of-pocket max. Standard (non cost-sharing-reduction) variant only.",
+      "grain": "One row per plan_year x standard_component_id.",
+      "rows": 15619,
+      "columns": [
+        {
+          "name": "plan_year",
+          "type": "INT64",
+          "enum_values": [
+            2025,
+            2026,
+            2027
+          ],
+          "description": "Plan year (2025, 2026 or 2027). Every table has it. Always filter on it."
+        },
+        {
+          "name": "state_code",
+          "type": "STRING",
+          "enum_values": [
+            "AK",
+            "AL",
+            "AR",
+            "AZ",
+            "DE",
+            "FL",
+            "HI",
+            "IA",
+            "IL",
+            "IN",
+            "KS",
+            "LA",
+            "MI",
+            "MO",
+            "MS",
+            "MT",
+            "NC",
+            "ND",
+            "NE",
+            "NH",
+            "OH",
+            "OK",
+            "OR",
+            "SC",
+            "SD",
+            "TN",
+            "TX",
+            "UT",
+            "WI",
+            "WV",
+            "WY"
+          ],
+          "description": "Two-character state abbreviation indicating the state where the plan is offered."
+        },
+        {
+          "name": "issuer_id",
+          "type": "STRING",
+          "description": "Five-digit numeric code that identifies the issuer organization in the Health Insurance Oversight System (HIOS)."
+        },
+        {
+          "name": "issuer_name",
+          "type": "STRING",
+          "description": "Name of the insurance issuer organization."
+        },
+        {
+          "name": "market_coverage",
+          "type": "STRING",
+          "enum_values": [
+            "Individual",
+            "SHOP (Small Group)"
+          ],
+          "description": "'Individual' (the ACA marketplace) or 'SHOP (Small Group)' (small employers)."
+        },
+        {
+          "name": "dental_only_plan",
+          "type": "STRING",
+          "enum_values": [
+            "No",
+            "Yes"
+          ],
+          "description": "'Yes' for stand-alone dental plans, 'No' for medical plans. Filter to 'No' for health insurance questions."
+        },
+        {
+          "name": "standard_component_id",
+          "type": "STRING",
+          "description": "14-character HIOS plan ID. Joins to rates.plan_id and crosswalk prior/current plan ids (plus plan_year)."
+        },
+        {
+          "name": "plan_name",
+          "type": "STRING",
+          "description": "Marketing name of insurance plan."
+        },
+        {
+          "name": "product_id",
+          "type": "STRING",
+          "description": "Seven-character alpha-numeric code that identifies an insurance product within HIOS."
+        },
+        {
+          "name": "network_id",
+          "type": "STRING",
+          "description": "Identifier for a health care provider network."
+        },
+        {
+          "name": "service_area_id",
+          "type": "STRING",
+          "description": "Joins to service_area_counties (with issuer_id and plan_year) to find the counties the plan covers."
+        },
+        {
+          "name": "is_new_plan",
+          "type": "STRING",
+          "enum_values": [
+            "Existing",
+            "New"
+          ],
+          "description": "Categorical indicator of whether the insurance plan is new for the current year or existed previously in the Marketplace."
+        },
+        {
+          "name": "plan_type",
+          "type": "STRING",
+          "enum_values": [
+            "EPO",
+            "HMO",
+            "Indemnity",
+            "POS",
+            "PPO"
+          ],
+          "description": "Type of insurance plan, such as HMO, PPO, or EPO."
+        },
+        {
+          "name": "metal_level",
+          "type": "STRING",
+          "enum_values": [
+            "Bronze",
+            "Catastrophic",
+            "Expanded Bronze",
+            "Gold",
+            "High",
+            "Low",
+            "Platinum",
+            "Silver"
+          ],
+          "description": "Bronze, Silver, Gold, Platinum or Catastrophic for medical plans. 'High' and 'Low' are dental plans only."
+        },
+        {
+          "name": "exchange_type",
+          "type": "STRING",
+          "enum_values": [
+            "Both",
+            "Off the Exchange",
+            "On the Exchange"
+          ],
+          "description": "'On Exchange', 'Off Exchange' or 'Both'."
+        },
+        {
+          "name": "child_only_offering",
+          "type": "STRING",
+          "enum_values": [
+            "Allows Adult and Child-Only",
+            "Allows Child-Only"
+          ],
+          "description": "The types of adult and child enrollment options allowed by the insurance plan."
+        },
+        {
+          "name": "is_hsa_eligible",
+          "type": "STRING",
+          "enum_values": [
+            "No",
+            "Yes"
+          ],
+          "description": "An indication of whether the insurance plan qualifies as a Health Savings Account (HSA) eligible plan."
+        },
+        {
+          "name": "deductible_individual",
+          "type": "FLOAT64",
+          "range": [
+            0.0,
+            12000.0
+          ],
+          "description": "Individual in-network (tier 1) deductible in dollars for the standard plan variant. Medical deductible, or the combined medical and drug deductible when the plan combines them. NULL when not applicable."
+        },
+        {
+          "name": "moop_individual",
+          "type": "FLOAT64",
+          "range": [
+            0.0,
+            12000.0
+          ],
+          "description": "Individual in-network (tier 1) maximum out-of-pocket in dollars for the standard plan variant, same medical or combined basis as deductible_individual. NULL when not applicable."
+        }
+      ]
+    },
+    {
+      "name": "service_area_counties",
+      "description": "Which counties each issuer service area covers. Statewide service areas are expanded to every county in the state.",
+      "grain": "One row per plan_year x issuer_id x service_area_id x county_fips.",
+      "rows": 82217,
+      "columns": [
+        {
+          "name": "plan_year",
+          "type": "INT64",
+          "enum_values": [
+            2025,
+            2026,
+            2027
+          ],
+          "description": "Plan year (2025, 2026 or 2027). Every table has it. Always filter on it."
+        },
+        {
+          "name": "state_code",
+          "type": "STRING",
+          "enum_values": [
+            "AK",
+            "AL",
+            "AR",
+            "AZ",
+            "DE",
+            "FL",
+            "HI",
+            "IA",
+            "IL",
+            "IN",
+            "KS",
+            "LA",
+            "MI",
+            "MO",
+            "MS",
+            "MT",
+            "NC",
+            "ND",
+            "NE",
+            "NH",
+            "OH",
+            "OK",
+            "OR",
+            "SC",
+            "SD",
+            "TN",
+            "TX",
+            "UT",
+            "WI",
+            "WV",
+            "WY"
+          ],
+          "description": "Two-character state abbreviation indicating the state where the plan is offered."
+        },
+        {
+          "name": "issuer_id",
+          "type": "STRING",
+          "description": "Five-digit numeric code that identifies the issuer organization in the Health Insurance Oversight System (HIOS)."
+        },
+        {
+          "name": "service_area_id",
+          "type": "STRING",
+          "description": "Identifier for a service area."
+        },
+        {
+          "name": "service_area_name",
+          "type": "STRING",
+          "description": "Name of a service area."
+        },
+        {
+          "name": "county_fips",
+          "type": "STRING",
+          "description": "Five-digit county FIPS code, like '48201' for Harris County, TX."
+        },
+        {
+          "name": "county_name",
+          "type": "STRING",
+          "description": "County name from the Census Bureau FIPS list, like 'Harris County'. Can be NULL if the FIPS code is not in that list."
+        },
+        {
+          "name": "covers_entire_state",
+          "type": "STRING",
+          "enum_values": [
+            "No",
+            "Yes"
+          ],
+          "description": "'Yes' when the issuer lists the whole state (counties were expanded by the build), 'No' when it listed counties."
+        },
+        {
+          "name": "partial_county",
+          "type": "STRING",
+          "enum_values": [
+            "No",
+            "Yes"
+          ],
+          "description": "'Yes' when only some zip codes of the county are covered. NULL for statewide service areas."
+        },
+        {
+          "name": "market_coverage",
+          "type": "STRING",
+          "enum_values": [
+            "Individual",
+            "SHOP (Small Group)"
+          ],
+          "description": "Categorical indicator of market coverage of plans submitted with this template."
+        },
+        {
+          "name": "dental_only_plan",
+          "type": "STRING",
+          "enum_values": [
+            "No",
+            "Yes"
+          ],
+          "description": "Categorical indicator of dental-only status of plans submitted with this template."
+        }
+      ]
+    },
+    {
+      "name": "crosswalk",
+      "description": "Where enrollees in last year's plans were moved this year. Use it for year-over-year plan changes, discontinued plans and replacements.",
+      "grain": "One row per prior plan x county (x zip code for partial counties). plan_year is the year enrollees move INTO, so plan_year 2027 maps 2026 plans to 2027 plans.",
+      "rows": 491670,
+      "columns": [
+        {
+          "name": "plan_year",
+          "type": "INT64",
+          "enum_values": [
+            2025,
+            2026,
+            2027
+          ],
+          "description": "The year enrollees move into. plan_year 2027 means a 2026 plan crosswalked to a 2027 plan."
+        },
+        {
+          "name": "state_code",
+          "type": "STRING",
+          "enum_values": [
+            "AK",
+            "AL",
+            "AR",
+            "AZ",
+            "DE",
+            "FL",
+            "GA",
+            "HI",
+            "IA",
+            "IL",
+            "IN",
+            "KS",
+            "LA",
+            "MI",
+            "MO",
+            "MS",
+            "MT",
+            "NC",
+            "ND",
+            "NE",
+            "NH",
+            "OH",
+            "OK",
+            "OR",
+            "SC",
+            "SD",
+            "TN",
+            "TX",
+            "UT",
+            "WI",
+            "WV",
+            "WY"
+          ],
+          "description": "Two-character state abbreviation indicating the state where the plan is offered."
+        },
+        {
+          "name": "dental_plan",
+          "type": "STRING",
+          "enum_values": [
+            "N",
+            "Y"
+          ],
+          "description": "'Y' for stand-alone dental plans, 'N' for medical plans."
+        },
+        {
+          "name": "prior_plan_id",
+          "type": "STRING",
+          "description": "14-character plan ID in plan_year - 1. Joins to plans.standard_component_id with plan_year - 1."
+        },
+        {
+          "name": "prior_issuer_id",
+          "type": "STRING",
+          "description": "Identifier of the issuer for the prior year plan."
+        },
+        {
+          "name": "prior_metal_level",
+          "type": "STRING",
+          "enum_values": [
+            "Bronze",
+            "Catastrophic",
+            "Gold",
+            "High",
+            "Low",
+            "Platinum",
+            "Silver"
+          ],
+          "description": "Metal level or tier of the prior year plan."
+        },
+        {
+          "name": "current_plan_id",
+          "type": "STRING",
+          "description": "14-character plan ID in plan_year. NULL when the plan was discontinued with no replacement."
+        },
+        {
+          "name": "current_issuer_id",
+          "type": "STRING",
+          "description": "NULL when there is no replacement."
+        },
+        {
+          "name": "current_metal_level",
+          "type": "STRING",
+          "enum_values": [
+            "Bronze",
+            "Catastrophic",
+            "Gold",
+            "High",
+            "Low",
+            "Platinum",
+            "Silver"
+          ],
+          "description": "NULL when there is no replacement."
+        },
+        {
+          "name": "county_fips",
+          "type": "STRING",
+          "description": "Five-digit county FIPS code the crosswalk applies to."
+        },
+        {
+          "name": "zip_code",
+          "type": "STRING",
+          "description": "'00000' means the whole county."
+        },
+        {
+          "name": "crosswalk_level",
+          "type": "INT64",
+          "enum_values": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "description": "0 same plan ID, 1 plan ID level, 2 plan ID and county level, 3 zip-code level."
+        },
+        {
+          "name": "reason_code",
+          "type": "INT64",
+          "enum_values": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            10
+          ],
+          "description": "CMS reason code, 0 to 10. See crosswalk_outcome for a readable version."
+        },
+        {
+          "name": "crosswalk_outcome",
+          "type": "STRING",
+          "enum_values": [
+            "Discontinued, no replacement",
+            "Moved to a different issuer (set by CMS)",
+            "Moved to a different plan in the same product",
+            "Moved to a different product",
+            "Renewed, new plan ID",
+            "Renewed, same plan ID"
+          ],
+          "description": "Readable outcome from reason_code. Count plans with COUNT(DISTINCT prior_plan_id) because one plan has many county rows."
+        }
+      ]
+    },
+    {
+      "name": "benefits",
+      "description": "Which benefits each plan covers and what the member pays in network (copay or coinsurance), for the standard plan variant.",
+      "grain": "One row per plan_year x standard_component_id x benefit_name. Join to plans on standard_component_id and plan_year.",
+      "rows": 922694,
+      "columns": [
+        {
+          "name": "plan_year",
+          "type": "INT64",
+          "enum_values": [
+            2025,
+            2026,
+            2027
+          ],
+          "description": "Plan year (2025, 2026 or 2027). Every table has it. Always filter on it."
+        },
+        {
+          "name": "state_code",
+          "type": "STRING",
+          "enum_values": [
+            "AK",
+            "AL",
+            "AR",
+            "AZ",
+            "DE",
+            "FL",
+            "HI",
+            "IA",
+            "IL",
+            "IN",
+            "KS",
+            "LA",
+            "MI",
+            "MO",
+            "MS",
+            "MT",
+            "NC",
+            "ND",
+            "NE",
+            "NH",
+            "OH",
+            "OK",
+            "OR",
+            "SC",
+            "SD",
+            "TN",
+            "TX",
+            "UT",
+            "WI",
+            "WV",
+            "WY"
+          ],
+          "description": "Two-letter state abbreviation."
+        },
+        {
+          "name": "issuer_id",
+          "type": "STRING",
+          "description": "Five-digit HIOS issuer ID."
+        },
+        {
+          "name": "standard_component_id",
+          "type": "STRING",
+          "description": "14-character HIOS plan ID. Joins to plans.standard_component_id (plus plan_year)."
+        },
+        {
+          "name": "benefit_name",
+          "type": "STRING",
+          "description": "The benefit exactly as filed, like 'Primary Care Visit to Treat an Injury or Illness', 'Specialist Visit' or 'Preferred Brand Drugs'. There are too many names to list: call find_values to get the exact spelling."
+        },
+        {
+          "name": "is_covered",
+          "type": "STRING",
+          "enum_values": [
+            "Covered",
+            "Not Covered"
+          ],
+          "description": "'Covered' or 'Not Covered'. The cost sharing columns are NULL when the benefit is not covered."
+        },
+        {
+          "name": "is_ehb",
+          "type": "STRING",
+          "enum_values": [
+            "No",
+            "Yes"
+          ],
+          "description": "'Yes' when the benefit is an essential health benefit."
+        },
+        {
+          "name": "copay_in_network",
+          "type": "FLOAT64",
+          "range": [
+            0.0,
+            7150.0
+          ],
+          "description": "Fixed in-network (tier 1) copay in dollars. 0 for 'No Charge'. NULL when the benefit uses coinsurance instead, or is not covered."
+        },
+        {
+          "name": "copay_in_network_text",
+          "type": "STRING",
+          "description": "The in-network copay exactly as filed, like '$50.00 Copay after deductible' or 'No Charge'. NULL when not applicable."
+        },
+        {
+          "name": "copay_unit",
+          "type": "STRING",
+          "enum_values": [
+            "Day",
+            "Service",
+            "Stay"
+          ],
+          "description": "What the copay is charged per: 'Day' or 'Stay' for hospital-type benefits, otherwise 'Service' (a visit or an item). Only compare copays that share a unit. A per-Day copay is charged for every day. NULL when there is no copay."
+        },
+        {
+          "name": "coinsurance_in_network",
+          "type": "FLOAT64",
+          "range": [
+            0.0,
+            100.0
+          ],
+          "description": "In-network (tier 1) coinsurance: the percent of the cost the member pays, so 50 means 50%. 0 means no charge. NULL when the benefit uses a copay instead, or is not covered."
+        },
+        {
+          "name": "coinsurance_in_network_text",
+          "type": "STRING",
+          "enum_values": [
+            "0.00%",
+            "0.00% Coinsurance after deductible",
+            "10.00%",
+            "10.00% Coinsurance after deductible",
+            "100.00%",
+            "100.00% Coinsurance after deductible",
+            "14.00%",
+            "15.00%",
+            "15.00% Coinsurance after deductible",
+            "19.00% Coinsurance after deductible",
+            "20.00%",
+            "20.00% Coinsurance after deductible",
+            "21.00%",
+            "25.00%",
+            "25.00% Coinsurance after deductible",
+            "27.00%",
+            "28.00%",
+            "28.00% Coinsurance after deductible",
+            "30.00%",
+            "30.00% Coinsurance after deductible",
+            "33.00% Coinsurance after deductible",
+            "35.00%",
+            "35.00% Coinsurance after deductible",
+            "37.00% Coinsurance after deductible",
+            "38.00% Coinsurance after deductible",
+            "39.00%",
+            "40.00%",
+            "40.00% Coinsurance after deductible",
+            "41.00%",
+            "42.00% Coinsurance after deductible",
+            "43.00%",
+            "45.00%",
+            "45.00% Coinsurance after deductible",
+            "47.00%",
+            "47.00% Coinsurance after deductible",
+            "49.00% Coinsurance after deductible",
+            "5.00% Coinsurance after deductible",
+            "50.00%",
+            "50.00% Coinsurance after deductible",
+            "54.00%",
+            "55.00%",
+            "55.00% Coinsurance after deductible",
+            "60.00%",
+            "60.00% Coinsurance after deductible",
+            "65.00%",
+            "65.00% Coinsurance after deductible",
+            "7.00% Coinsurance after deductible",
+            "70.00%",
+            "70.00% Coinsurance after deductible",
+            "75.00%",
+            "75.00% Coinsurance after deductible",
+            "80.00%",
+            "80.00% Coinsurance after deductible",
+            "85.00% Coinsurance after deductible",
+            "No Charge",
+            "No Charge after deductible"
+          ],
+          "description": "The in-network coinsurance exactly as filed, like '50.00% Coinsurance after deductible'. NULL when not applicable."
+        },
+        {
+          "name": "after_deductible",
+          "type": "STRING",
+          "enum_values": [
+            "No",
+            "Yes"
+          ],
+          "description": "'Yes' when the in-network cost sharing applies only after the deductible is met, 'No' when it applies from the first visit. NULL when the benefit has no cost sharing."
+        },
+        {
+          "name": "quantity_limit",
+          "type": "STRING",
+          "enum_values": [
+            "No",
+            "Yes"
+          ],
+          "description": "'Yes' when the plan limits how much of the benefit it covers."
+        },
+        {
+          "name": "limit_qty",
+          "type": "FLOAT64",
+          "range": [
+            1.0,
+            75000.0
+          ],
+          "description": "Size of the limit, like 35 for 35 visits."
+        },
+        {
+          "name": "limit_unit",
+          "type": "STRING",
+          "enum_values": [
+            "Days per Admission",
+            "Days per Benefit Period",
+            "Days per Episode",
+            "Days per Lifetime",
+            "Days per Month",
+            "Days per Stay",
+            "Days per Year",
+            "Dollars per Benefit Period",
+            "Dollars per Episode",
+            "Dollars per Lifetime",
+            "Dollars per Procedure",
+            "Dollars per Year",
+            "Exam(s) per 2 Years",
+            "Exam(s) per 6 Months",
+            "Exam(s) per Benefit Period",
+            "Exam(s) per Month",
+            "Exam(s) per Transplant",
+            "Exam(s) per Year",
+            "Hours per Benefit Period",
+            "Hours per Year",
+            "Item(s) per 2 Years",
+            "Item(s) per 3 Years",
+            "Item(s) per 6 Months",
+            "Item(s) per Benefit Period",
+            "Item(s) per Lifetime",
+            "Item(s) per Month",
+            "Item(s) per Procedure",
+            "Item(s) per Year",
+            "Months per 3 Years",
+            "Months per Episode",
+            "Months per Lifetime",
+            "Months per Procedure",
+            "Procedure(s) per 2 Years",
+            "Procedure(s) per 3 Years",
+            "Procedure(s) per 6 Months",
+            "Procedure(s) per Benefit Period",
+            "Procedure(s) per Episode",
+            "Procedure(s) per Lifetime",
+            "Procedure(s) per Year",
+            "Treatment(s) per 2 Years",
+            "Treatment(s) per 6 Months",
+            "Treatment(s) per Benefit Period",
+            "Treatment(s) per Episode",
+            "Treatment(s) per Lifetime",
+            "Treatment(s) per Month",
+            "Treatment(s) per Procedure",
+            "Treatment(s) per Week",
+            "Treatment(s) per Year",
+            "Visit(s) per 2 Years",
+            "Visit(s) per 3 Years",
+            "Visit(s) per 6 Months",
+            "Visit(s) per Benefit Period",
+            "Visit(s) per Episode",
+            "Visit(s) per Lifetime",
+            "Visit(s) per Year"
+          ],
+          "description": "What limit_qty counts, like 'Visit(s) per Benefit Period' or 'Days per Benefit Period'."
+        }
+      ]
+    }
+  ]
+}
